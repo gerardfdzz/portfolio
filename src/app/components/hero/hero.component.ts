@@ -103,7 +103,6 @@ export class HeroComponent implements OnInit, OnDestroy {
       this.ctx.fill();
     }
 
-    // Draw connections
     for (let i = 0; i < this.particles.length; i++) {
       for (let j = i + 1; j < this.particles.length; j++) {
         const dx = this.particles[i].x - this.particles[j].x;
