@@ -20,8 +20,8 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   readonly stats = [
     { value: '4+', label: 'Years of experience' },
-    { value: '2+', label: 'At Vueling' },
-    { value: '3', label: 'Languages' },
+    { value: '3+', label: 'At Vueling' },
+    { value: '3', label: 'Spoken languages' },
   ];
 
   readonly techBadges = ['Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'Cypress', 'CI/CD'];
