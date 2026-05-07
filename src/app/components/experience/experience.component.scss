@@ -1,18 +1,18 @@
 .experience {
   background: var(--bg);
 }
-
+ 
 .exp-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 40px;
   align-items: start;
-
+ 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 }
-
+ 
 // ─── SIDEBAR ─────────────────────────────────────────────────────────────────
 .exp-sidebar {
   display: flex;
@@ -20,19 +20,19 @@
   gap: 4px;
   position: sticky;
   top: calc(var(--nav-h) + 24px);
-
+ 
   @media (max-width: 768px) {
     position: static;
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 8px;
     gap: 8px;
-
+ 
     &::-webkit-scrollbar { height: 3px; }
     &::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
   }
 }
-
+ 
 .exp-tab {
   position: relative;
   background: none;
@@ -42,31 +42,33 @@
   text-align: left;
   cursor: pointer;
   transition: var(--transition);
-
+ 
   @media (max-width: 768px) {
     flex-shrink: 0;
-    min-width: 180px;
+    min-width: 160px;
+    max-width: 220px;
+    padding-top: 36px;
   }
-
+ 
   &:hover {
     background: var(--bg-card);
     border-color: var(--border);
   }
-
+ 
   &.active {
     background: var(--bg-card);
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent-glow);
-
+ 
     .tab-company { color: var(--accent); }
     .tab-role { color: var(--text-primary); }
   }
-
+ 
   &.highlight.active {
     background: rgba(108, 99, 255, 0.08);
   }
 }
-
+ 
 .tab-company {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -75,8 +77,11 @@
   letter-spacing: 0.08em;
   margin-bottom: 5px;
   transition: var(--transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
+ 
 .tab-role {
   font-family: var(--font-display);
   font-size: 13px;
@@ -84,18 +89,22 @@
   color: var(--text-secondary);
   margin-bottom: 5px;
   transition: var(--transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
+ 
 .tab-period {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-muted);
+  white-space: nowrap;
 }
-
+ 
 .tab-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   padding: 2px 8px;
   background: rgba(74, 222, 128, 0.1);
   border: 1px solid rgba(74, 222, 128, 0.3);
@@ -103,8 +112,9 @@
   font-family: var(--font-mono);
   font-size: 10px;
   color: #4ade80;
+  white-space: nowrap;
 }
-
+ 
 // ─── DETAIL PANEL ────────────────────────────────────────────────────────────
 .exp-detail {
   background: var(--bg-card);
@@ -112,18 +122,18 @@
   border-radius: var(--radius-lg);
   padding: 40px;
   min-height: 360px;
-
+ 
   @media (max-width: 480px) {
     padding: 24px;
   }
 }
-
+ 
 .detail-header {
   margin-bottom: 28px;
   padding-bottom: 28px;
   border-bottom: 1px solid var(--border);
 }
-
+ 
 .detail-title-row {
   display: flex;
   align-items: center;
@@ -131,34 +141,35 @@
   margin-bottom: 6px;
   flex-wrap: wrap;
 }
-
+ 
 .detail-role {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 800;
   color: var(--text-primary);
 }
-
+ 
 .current-badge {
   font-family: var(--font-mono);
   font-size: 12px;
   color: #4ade80;
+  white-space: nowrap;
 }
-
+ 
 .detail-company {
   font-size: 16px;
   color: var(--accent);
   font-weight: 500;
   margin-bottom: 16px;
 }
-
+ 
 .detail-meta {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
 }
-
+ 
 .meta-item {
   display: flex;
   align-items: center;
@@ -167,18 +178,24 @@
   font-size: 12px;
   color: var(--text-muted);
 }
-
+ 
 .meta-sep {
   color: var(--border-2);
+ 
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
-
+ 
 .detail-desc {
   font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 28px;
+  text-align: justify;
+  text-justify: inter-word;
 }
-
+ 
 .detail-tags {
   display: flex;
   flex-wrap: wrap;

@@ -8,18 +8,18 @@ export class PortfolioDataService {
     {
       id: 'vueling-mid',
       role: 'Mid Frontend Developer',
-      company: 'Vueling (via Capitole Consulting)',
+      company: 'Vueling (via Capitole)',
       period: 'Mar 2023 — Present',
       duration: '3+ years',
       location: 'Viladecans, Barcelona',
       description: 'Working within a product-focused team responsible for delivering commercial web solutions for one of Europe\'s leading airlines. Developing and optimizing ancillary services features with strong focus on performance, accessibility, and user experience. Integrated reusable components and built Angular CDK libraries to reduce duplication across the platform. Active participant in CI/CD pipelines, production deployments, and Agile/Scrum ceremonies.',
-      tags: ['Angular 17', 'NgRx', 'TypeScript', 'Cypress', 'CI/CD', 'Angular CDK', 'Scrum'],
+      tags: ['Angular 17', 'NgRx', 'TypeScript', 'Jasmine', 'Cypress', 'TestRail', 'CI/CD', 'Angular CDK', 'Scrum', 'Agile'],
       highlight: true
     },
     {
       id: 'vueling-junior',
       role: 'Junior CI & RPA Developer',
-      company: 'Vueling (via Capitole Consulting)',
+      company: 'Vueling (via Capitole)',
       period: 'Sep 2022 — Mar 2023',
       duration: '7 months',
       location: 'El Prat de Llobregat, Barcelona',
