@@ -1,0 +1,90 @@
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="section-label">Get in touch</p>
+        <h2 class="contact-title">
+          Let's work<br>
+          <span class="gradient-text">together.</span>
+        </h2>
+        <p class="contact-bio">
+          I'm currently open to new opportunities — whether it's a full-time role,
+          a contract, or a project collaboration. If you're looking for a
+          frontend developer who knows Angular inside-out and cares about
+          quality, let's talk.
+        </p>
+
+        <div class="contact-links">
+          @for (link of contactLinks; track link.label) {
+            <div class="contact-link-card">
+              <div class="link-icon">
+                @switch (link.icon) {
+                  @case ('email') {
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  }
+                  @case ('linkedin') {
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                    </svg>
+                  }
+                  @case ('location') {
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                  }
+                }
+              </div>
+              <div class="link-info">
+                <p class="link-label">{{ link.label }}</p>
+                @if (link.href) {
+                  <a [href]="link.href" target="_blank" rel="noopener" class="link-value">{{ link.value }}</a>
+                } @else {
+                  <p class="link-value no-link">{{ link.value }}</p>
+                }
+                <p class="link-desc">{{ link.desc }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="cta-card">
+          <div class="cta-glow"></div>
+          <div class="cta-content">
+            <h3 class="cta-title">Open to work</h3>
+            <p class="cta-text">
+              Looking for a senior/mid frontend role in a product-driven team.
+              Angular expert with full CI/CD and Agile experience.
+            </p>
+            <div class="cta-tags">
+              <span class="tag">Full-time</span>
+              <span class="tag">Contract</span>
+              <span class="tag">Remote / Barcelona</span>
+            </div>
+            <a href="mailto:fernandezgarciagerard@gmail.com" class="cta-btn">
+              Send me an email
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">
+        Built with <strong>Angular 17</strong> & TypeScript · Gerard Fernández García {{ year }}
+      </p>
+    </div>
+  </footer>
+</section>

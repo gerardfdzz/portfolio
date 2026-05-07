@@ -1,0 +1,96 @@
+<section class="hero">
+  <canvas #canvas class="hero-canvas"></canvas>
+
+  <div class="hero-bg-glow"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-fade-up">
+        <span class="status-dot"></span>
+        <span>Available for new opportunities</span>
+      </div>
+
+      <h1 class="hero-name animate-fade-up" style="animation-delay: 0.1s">
+        Gerard<br>
+        <span class="name-accent">Fernández</span><br>
+        García
+      </h1>
+
+      <div class="hero-role animate-fade-up" style="animation-delay: 0.2s">
+        <span class="role-text">{{ displayedText() }}</span>
+        <span class="cursor">|</span>
+      </div>
+
+      <p class="hero-bio animate-fade-up" style="animation-delay: 0.3s">
+        Building high-performance, accessible web applications with
+        <strong>Angular 17</strong> and modern frontend tooling.
+        Based in <strong>Barcelona</strong> — currently at Vueling.
+      </p>
+
+      <div class="hero-badges animate-fade-up" style="animation-delay: 0.4s">
+        @for (badge of techBadges; track badge) {
+          <span class="tag">{{ badge }}</span>
+        }
+      </div>
+
+      <div class="hero-actions animate-fade-up" style="animation-delay: 0.5s">
+        <a href="#experience" class="btn-primary">View experience</a>
+        <a href="mailto:fernandezgarciagerard@gmail.com" class="btn-secondary">
+          Get in touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-stats animate-fade-up" style="animation-delay: 0.6s">
+        @for (stat of stats; track stat.label) {
+          <div class="stat">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="hero-visual animate-fade-up" style="animation-delay: 0.3s">
+      <div class="code-card">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="file-name">gerard.component.ts</span>
+        </div>
+        <pre class="code-body"><code><span class="c-keyword">&#64;Component</span>(<span>&#123;</span>
+  <span class="c-key">selector</span>: <span class="c-string">'app-gerard'</span>,
+  <span class="c-key">standalone</span>: <span class="c-bool">true</span>,
+  <span class="c-key">template</span>: <span class="c-string">`&lt;frontend-dev/&gt;`</span>
+<span>&#125;)</span>
+<span class="c-keyword">export class</span> <span class="c-class">GerardComponent</span> <span>&#123;</span>
+
+  <span class="c-key">role</span> = <span class="c-string">'Frontend Developer'</span>;
+  <span class="c-key">company</span> = <span class="c-string">'Capitole'</span>;
+  <span class="c-key">location</span> = <span class="c-string">'Barcelona, ES'</span>;
+  <span class="c-key">experience</span> = <span class="c-num">4</span>;
+
+  <span class="c-key">stack</span>: <span class="c-type">string[]</span> = [
+    <span class="c-string">'Angular 17'</span>,
+    <span class="c-string">'TypeScript'</span>,
+    <span class="c-string">'NgRx'</span>,
+    <span class="c-string">'Cypress'</span>,
+  ];
+
+  <span class="c-fn">getInTouch</span>() <span>&#123;</span>
+    <span class="c-keyword">return</span> <span class="c-string">'fernandezgarciagerard&#64;gmail.com'</span>;
+  <span>&#125;</span>
+<span>&#125;</span></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
