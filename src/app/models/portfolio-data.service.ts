@@ -1,131 +1,137 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject, computed } from '@angular/core';
+import { I18nService } from './i18n.service';
 import { Experience, SkillCategory, Education } from '../models/portfolio.model';
+
+const EXPERIENCE_STATIC = [
+  {
+    id: 'vueling-mid',
+    company: 'Vueling (via Capitole)',
+    location: 'Viladecans, Barcelona',
+    tags: ['Angular 17', 'NgRx', 'TypeScript', 'Jasmine', 'Cypress', 'TestRail', 'CI/CD', 'Angular CDK', 'Scrum', 'Agile'],
+    highlight: true,
+  },
+  {
+    id: 'vueling-junior',
+    company: 'Vueling (via Capitole)',
+    location: 'El Prat de Llobregat, Barcelona',
+    tags: ['RPA', 'Cognigy', 'Conversational AI', 'Angular'],
+  },
+  {
+    id: 'vueling-intern',
+    company: 'Vueling IT University',
+    location: 'Barcelona',
+    tags: ['Angular', 'TypeScript', 'HTML/CSS'],
+  },
+  {
+    id: 'isadata-2',
+    company: 'ISA DATA S.L.',
+    location: 'Barcelona',
+    tags: ['Web Development', 'HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    id: 'isadata-1',
+    company: 'ISA DATA S.L.',
+    location: 'Barcelona',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    id: 'everis',
+    company: 'Everis (NTT Data)',
+    location: 'Barcelona',
+    tags: ['Development', 'Consulting'],
+  },
+];
+
+const SKILL_CATEGORIES_STATIC = [
+  {
+    id: 'core',
+    icon: '⚡',
+    skills: [
+      { name: 'Angular 17', level: 92 },
+      { name: 'TypeScript',  level: 90 },
+      { name: 'NgRx',        level: 85 },
+      { name: 'RxJS',        level: 80 },
+      { name: 'Angular CDK', level: 78 },
+    ],
+  },
+  {
+    id: 'styling',
+    icon: '🎨',
+    skills: [
+      { name: 'SCSS/CSS',            level: 88 },
+      { name: 'HTML5',               level: 92 },
+      { name: 'Responsive Design',   level: 85 },
+      { name: 'Accessibility (a11y)', level: 75 },
+    ],
+  },
+  {
+    id: 'testing',
+    icon: '🧪',
+    skills: [
+      { name: 'Cypress',   level: 80 },
+      { name: 'Jasmine',   level: 75 },
+      { name: 'TestRail',  level: 90 },
+    ],
+  },
+  {
+    id: 'tooling',
+    icon: '🛠',
+    skills: [
+      { name: 'Azure DevOps', level: 95 },
+      { name: 'GitFlow',      level: 90 },
+      { name: 'CI/CD',        level: 92 },
+      { name: 'Scrum/Agile',  level: 88 },
+    ],
+  },
+];
+
+const EDUCATION_STATIC = [
+  { institution: 'IFP Grupo Planeta', period: '2020 – 2021' },
+  { institution: 'IFP Grupo Planeta', period: '2018 – 2020' },
+  { institution: 'Col·legi Tecla Sala', period: '2016 – 2018' },
+];
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioDataService {
+  private i18n = inject(I18nService);
 
-  readonly experiences: Experience[] = [
-    {
-      id: 'vueling-mid',
-      role: 'Mid Frontend Developer',
-      company: 'Vueling (via Capitole)',
-      period: 'Mar 2023 — Present',
-      duration: '3+ years',
-      location: 'Viladecans, Barcelona',
-      description: 'Working within a product-focused team responsible for delivering commercial web solutions for one of Europe\'s leading airlines. Developing and optimizing ancillary services features with strong focus on performance, accessibility, and user experience. Integrated reusable components and built Angular CDK libraries to reduce duplication across the platform. Active participant in CI/CD pipelines, production deployments, and Agile/Scrum ceremonies.',
-      tags: ['Angular 17', 'NgRx', 'TypeScript', 'Jasmine', 'Cypress', 'TestRail', 'CI/CD', 'Angular CDK', 'Scrum', 'Agile'],
-      highlight: true
-    },
-    {
-      id: 'vueling-junior',
-      role: 'Junior CI & RPA Developer',
-      company: 'Vueling (via Capitole)',
-      period: 'Sep 2022 — Mar 2023',
-      duration: '7 months',
-      location: 'El Prat de Llobregat, Barcelona',
-      description: 'Worked on Conversational Intelligence and Robotics Process Automation projects within the Vueling digital ecosystem. Supported automation workflows and contributed to the conversational layer using Cognigy.',
-      tags: ['RPA', 'Cognigy', 'Conversational AI', 'Angular'],
-    },
-    {
-      id: 'vueling-intern',
-      role: 'Junior Frontend Angular Developer',
-      company: 'Vueling IT University',
-      period: 'Jun 2022 — Sep 2022',
-      duration: '4 months',
-      location: 'Barcelona',
-      description: 'Onboarding into Vueling\'s tech stack through the IT University programme. Participated in the preparation and integration of multimedia materials into web applications following design team guidelines.',
-      tags: ['Angular', 'TypeScript', 'HTML/CSS'],
-    },
-    {
-      id: 'isadata-2',
-      role: 'Development Intern',
-      company: 'ISA DATA S.L.',
-      period: 'Dec 2021 — Mar 2022',
-      duration: '4 months',
-      location: 'Barcelona',
-      description: 'Full-stack web development internship. Collaborated on web application maintenance and new feature development.',
-      tags: ['Web Development', 'HTML', 'CSS', 'JavaScript'],
-    },
-    {
-      id: 'isadata-1',
-      role: 'Web Development Intern',
-      company: 'ISA DATA S.L.',
-      period: 'Feb 2021 — Jun 2021',
-      duration: '5 months',
-      location: 'Barcelona',
-      description: 'First professional web development experience. Contributed to development and maintenance of computer applications in web environments.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-    },
-    {
-      id: 'everis',
-      role: 'Development Intern',
-      company: 'Everis (NTT Data)',
-      period: 'Feb 2020 — Mar 2020',
-      duration: '2 months',
-      location: 'Barcelona',
-      description: 'Early career internship at a leading technology consulting firm. First exposure to enterprise development workflows.',
-      tags: ['Development', 'Consulting'],
-    }
-  ];
+  readonly experiences = computed<Experience[]>(() => {
+    const t = this.i18n.t();
+    return EXPERIENCE_STATIC.map(exp => {
+      const tr = t?.experience?.items?.[exp.id];
+      return {
+        id:          exp.id,
+        company:     exp.company,
+        location:    exp.location,
+        tags:        [...exp.tags],
+        highlight:   exp.highlight ?? false,
+        role:        tr?.role        ?? '',
+        period:      tr?.period      ?? '',
+        duration:    tr?.duration    ?? '',
+        description: tr?.description ?? '',
+      } satisfies Experience;
+    });
+  });
 
-  readonly skillCategories: SkillCategory[] = [
-    {
-      name: 'Core',
-      icon: '⚡',
-      skills: [
-        { name: 'Angular 17', level: 92, category: 'Core' },
-        { name: 'TypeScript', level: 90, category: 'Core' },
-        { name: 'NgRx', level: 85, category: 'Core' },
-        { name: 'RxJS', level: 80, category: 'Core' },
-        { name: 'Angular CDK', level: 78, category: 'Core' },
-      ]
-    },
-    {
-      name: 'Styling',
-      icon: '🎨',
-      skills: [
-        { name: 'SCSS/CSS', level: 88, category: 'Styling' },
-        { name: 'HTML5', level: 92, category: 'Styling' },
-        { name: 'Responsive Design', level: 85, category: 'Styling' },
-        { name: 'Accessibility (a11y)', level: 75, category: 'Styling' },
-      ]
-    },
-    {
-      name: 'Testing',
-      icon: '🧪',
-      skills: [
-        { name: 'Cypress', level: 80, category: 'Testing' },
-        { name: 'Jasmine', level: 75, category: 'Testing' },
-        { name: 'TestRail', level: 90, category: 'Testing' },
-      ]
-    },
-    {
-      name: 'Tooling',
-      icon: '🛠',
-      skills: [
-        { name: 'Azure DevOps', level: 95, category: 'Tooling' },
-        { name: 'GitFlow', level: 90, category: 'Tooling' },
-        { name: 'CI/CD', level: 92, category: 'Tooling' },
-        { name: 'Scrum/Agile', level: 88, category: 'Tooling' },
-      ]
-    }
-  ];
+  readonly skillCategories = computed<SkillCategory[]>(() => {
+    const t = this.i18n.t();
+    return SKILL_CATEGORIES_STATIC.map(cat => ({
+      name:  t?.skills?.categories?.[cat.id]?.name ?? cat.id,
+      icon:  cat.icon,
+      skills: cat.skills.map(s => ({
+        name:     s.name,
+        level:    s.level,
+        category: t?.skills?.categories?.[cat.id]?.name ?? cat.id,
+      })),
+    }) satisfies SkillCategory);
+  });
 
-  readonly education: Education[] = [
-    {
-      degree: 'CFGS — Web Application Development (DAW)',
-      institution: 'IFP Grupo Planeta',
-      period: '2020 – 2021'
-    },
-    {
-      degree: 'CFGS — Multiplatform Application Development (DAM)',
-      institution: 'IFP Grupo Planeta',
-      period: '2018 – 2020'
-    },
-    {
-      degree: 'Technological Baccalaureate',
-      institution: 'Col·legi Tecla Sala',
-      period: '2016 – 2018'
-    }
-  ];
+  readonly education = computed<Education[]>(() => {
+    const t = this.i18n.t();
+    return EDUCATION_STATIC.map((edu, i) => ({
+      institution: edu.institution,
+      period:      edu.period,
+      degree:      t?.education?.items?.[i]?.degree ?? '',
+    }) satisfies Education);
+  });
 }

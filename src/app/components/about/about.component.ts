@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
+import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,6 @@ import { PortfolioDataService } from '../../models/portfolio-data.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  education = this.data.education;
-
-  constructor(private data: PortfolioDataService) {}
+  i18n = inject(I18nService);
+  readonly education = inject(PortfolioDataService).education;
 }

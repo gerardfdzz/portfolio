@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,28 +10,24 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  i18n = inject(I18nService);
   readonly year = new Date().getFullYear();
+
   readonly contactLinks = [
     {
       icon: 'email',
-      label: 'Email',
       value: 'fernandezgarciagerard@gmail.com',
       href: 'mailto:fernandezgarciagerard@gmail.com',
-      desc: 'Best way to reach me'
     },
     {
       icon: 'linkedin',
-      label: 'LinkedIn',
       value: '/in/gerardfernandezgarcia',
       href: 'https://www.linkedin.com/in/gerardfernandezgarcia',
-      desc: 'Professional network'
     },
     {
       icon: 'location',
-      label: 'Location',
       value: 'Barcelona, Spain',
       href: null,
-      desc: 'Open to remote & hybrid'
     }
   ];
 }

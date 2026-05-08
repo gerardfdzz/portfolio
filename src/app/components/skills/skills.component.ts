@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
+import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,7 +11,8 @@ import { PortfolioDataService } from '../../models/portfolio-data.service';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent {
-  skillCategories = this.data.skillCategories;
+  i18n = inject(I18nService);
+  readonly skillCategories = inject(PortfolioDataService).skillCategories;
 
   readonly allTech = [
     'Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'Angular CDK',
@@ -19,6 +21,4 @@ export class SkillsComponent {
     'Azure DevOps', 'GitFlow', 'Git', 'CI/CD',
     'Scrum', 'Agile', 'Cognigy'
   ];
-
-  constructor(private data: PortfolioDataService) {}
 }

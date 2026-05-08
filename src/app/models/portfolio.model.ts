@@ -27,3 +27,22 @@ export interface Education {
   institution: string;
   period: string;
 }
+
+export interface ExperienceRaw {
+  id: string;
+  company: string;
+  location: string;
+  tags: string[];
+  highlight?: boolean;
+}
+
+export interface SkillCategoryRaw {
+  id: string;
+  icon: string;
+  skills: { name: string; level: number }[];
+}
+
+export interface EducationRaw {
+  institution: string;
+  period: string;
+}

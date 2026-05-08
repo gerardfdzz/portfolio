@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
+import { I18nService } from '../../models/i18n.service';
 import { Experience } from '../../models/portfolio.model';
 
 @Component({
@@ -11,14 +12,16 @@ import { Experience } from '../../models/portfolio.model';
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent {
-  experiences = this.data.experiences;
-  activeId = signal(this.data.experiences[0].id);
+  i18n     = inject(I18nService);
+  private data = inject(PortfolioDataService);
 
-  constructor(private data: PortfolioDataService) {}
+  readonly experiences = this.data.experiences;
 
-  get activeExperience(): Experience {
-    return this.experiences.find(e => e.id === this.activeId())!;
-  }
+  activeId = signal(this.data.experiences()[0].id);
+
+  readonly activeExperience = computed<Experience>(() =>
+    this.experiences().find(e => e.id === this.activeId())!
+  );
 
   setActive(id: string) {
     this.activeId.set(id);

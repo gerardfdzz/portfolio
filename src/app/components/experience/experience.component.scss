@@ -12,8 +12,7 @@
     grid-template-columns: 1fr;
   }
 }
- 
-// ─── SIDEBAR ─────────────────────────────────────────────────────────────────
+
 .exp-sidebar {
   display: flex;
   flex-direction: column;
@@ -114,8 +113,7 @@
   color: #4ade80;
   white-space: nowrap;
 }
- 
-// ─── DETAIL PANEL ────────────────────────────────────────────────────────────
+
 .exp-detail {
   background: var(--bg-card);
   border: 1px solid var(--border);

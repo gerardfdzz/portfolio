@@ -1,10 +1,11 @@
+@if (i18n.t(); as t) {
 <section class="section skills" id="skills">
   <div class="container">
-    <p class="section-label">Tech stack</p>
-    <h2 class="section-title">Skills</h2>
+    <p class="section-label">{{ t.skills.label }}</p>
+    <h2 class="section-title">{{ t.skills.title }}</h2>
 
     <div class="skills-grid">
-      @for (category of skillCategories; track category.name) {
+      @for (category of skillCategories(); track category.name) {
         <div class="skill-category">
           <div class="category-header">
             <span class="category-icon">{{ category.icon }}</span>
@@ -30,9 +31,8 @@
       }
     </div>
 
-    <!-- Full stack list -->
     <div class="all-skills">
-      <p class="all-skills-label">Full technology list</p>
+      <p class="all-skills-label">{{ t.skills.fullListLabel }}</p>
       <div class="all-skills-tags">
         @for (tech of allTech; track tech) {
           <span class="tag">{{ tech }}</span>
@@ -41,3 +41,4 @@
     </div>
   </div>
 </section>
+}

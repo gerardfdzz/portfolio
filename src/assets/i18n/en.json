@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact",
+    "hireMe": "Hire me"
+  },
+  "hero": {
+    "available": "Available for new opportunities",
+    "role": "Frontend Developer",
+    "bio": "Building high-performance, accessible web applications with Angular 17 and modern frontend tooling. Based in Barcelona — currently at Capitole.",
+    "viewExperience": "View experience",
+    "getInTouch": "Get in touch",
+    "stats": [
+      {
+        "value": "4+",
+        "label": "Years of experience"
+      },
+      {
+        "value": "3+",
+        "label": "At Vueling"
+      },
+      {
+        "value": "3",
+        "label": "Spoken languages"
+      }
+    ]
+  },
+  "about": {
+    "label": "About me",
+    "titleLine1": "Engineering",
+    "titleLine2": "interfaces that matter.",
+    "p1": "I'm a Frontend Developer with over 4 years of experience building scalable, accessible web applications. Currently at <strong>Vueling</strong> — one of Europe's leading airlines — where I work within a product team delivering commercial solutions used by millions of passengers.",
+    "p2": "My core expertise is in the <strong>Angular ecosystem</strong>: component architecture, state management with NgRx, performance optimization, and testing with Jasmine and Cypress. I care about clean, maintainable code and user experiences that are both fast and accessible.",
+    "p3": "Beyond the code, I contribute to team processes: roadmap definition, CI/CD pipelines, and cross-functional collaboration in Agile environments.",
+    "linkedinLabel": "LinkedIn",
+    "emailLabel": "Email me",
+    "educationTitle": "Education",
+    "values": [
+      {
+        "icon": "⚡",
+        "name": "Performance",
+        "desc": "Optimizing load times and runtime efficiency"
+      },
+      {
+        "icon": "♿",
+        "name": "Accessibility",
+        "desc": "Building for every user, every device"
+      },
+      {
+        "icon": "🧩",
+        "name": "Reusability",
+        "desc": "Angular CDK libraries & shared components"
+      },
+      {
+        "icon": "🔁",
+        "name": "Agile",
+        "desc": "Scrum, CI/CD, and iterative delivery"
+      }
+    ]
+  },
+  "experience": {
+    "label": "Work history",
+    "title": "Experience",
+    "currentBadge": "● Current",
+    "tabBadgeCurrent": "Current",
+    "items": {
+      "vueling-mid": {
+        "role": "Mid Frontend Developer",
+        "period": "Mar 2023 — Present",
+        "duration": "3+ years",
+        "description": "Working within a product-focused team responsible for delivering commercial web solutions for one of Europe's leading airlines. Developing and optimizing ancillary services features with a strong focus on performance, accessibility, and user experience. Integrated reusable components and built Angular CDK libraries to reduce duplication across the platform. Active participant in CI/CD pipelines, production deployments, and Agile/Scrum ceremonies."
+      },
+      "vueling-junior": {
+        "role": "Junior CI & RPA Developer",
+        "period": "Sep 2022 — Mar 2023",
+        "duration": "7 months",
+        "description": "Worked on Conversational Intelligence and Robotics Process Automation projects within the Vueling digital ecosystem. Supported automation workflows and contributed to the conversational layer using Cognigy."
+      },
+      "vueling-intern": {
+        "role": "Junior Frontend Angular Developer",
+        "period": "Jun 2022 — Sep 2022",
+        "duration": "4 months",
+        "description": "Onboarding into Vueling's tech stack through the IT University programme. Participated in the preparation and integration of multimedia materials into web applications following design team guidelines."
+      },
+      "isadata-2": {
+        "role": "Development Intern",
+        "period": "Dec 2021 — Mar 2022",
+        "duration": "4 months",
+        "description": "Full-stack web development internship. Collaborated on web application maintenance and new feature development."
+      },
+      "isadata-1": {
+        "role": "Web Development Intern",
+        "period": "Feb 2021 — Jun 2021",
+        "duration": "5 months",
+        "description": "First professional web development experience. Contributed to development and maintenance of computer applications in web environments."
+      },
+      "everis": {
+        "role": "Development Intern",
+        "period": "Feb 2020 — Mar 2020",
+        "duration": "2 months",
+        "description": "Early career internship at a leading technology consulting firm. First exposure to enterprise development workflows."
+      }
+    }
+  },
+  "skills": {
+    "label": "Tech stack",
+    "title": "Skills",
+    "fullListLabel": "Full technology list",
+    "categories": {
+      "core": {
+        "name": "Core"
+      },
+      "styling": {
+        "name": "Styling"
+      },
+      "testing": {
+        "name": "Testing"
+      },
+      "tooling": {
+        "name": "Tooling"
+      }
+    }
+  },
+  "contact": {
+    "label": "Get in touch",
+    "titleLine1": "Let's work",
+    "titleLine2": "together.",
+    "bio": "I'm currently open to new opportunities — whether it's a full-time role, a contract, or a project collaboration. If you're looking for a frontend developer who knows Angular inside-out and cares about quality, let's talk.",
+    "ctaTitle": "Open to work",
+    "ctaText": "Looking for a senior/mid frontend role in a product-driven team. Angular expert with full CI/CD and Agile experience.",
+    "sendEmail": "Send me an email",
+    "links": [
+      {
+        "label": "Email",
+        "desc": "Best way to reach me"
+      },
+      {
+        "label": "LinkedIn",
+        "desc": "Professional network"
+      },
+      {
+        "label": "Location",
+        "desc": "Open to remote & hybrid"
+      }
+    ],
+    "footer": "Built with Angular 17 & TypeScript · Gerard Fernández García"
+  },
+  "education": {
+    "items": [
+      {
+        "degree": "CFGS — Web Application Development (DAW)"
+      },
+      {
+        "degree": "CFGS — Multiplatform Application Development (DAM)"
+      },
+      {
+        "degree": "Technological Baccalaureate"
+      }
+    ]
+  }
+}

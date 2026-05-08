@@ -103,7 +103,6 @@
   color: var(--text-muted);
 }
 
-// ─── CTA CARD ────────────────────────────────────────────────────────────────
 .contact-right {
   position: sticky;
   top: calc(var(--nav-h) + 24px);
@@ -181,7 +180,6 @@
   svg { transition: transform var(--transition); }
 }
 
-// ─── FOOTER ──────────────────────────────────────────────────────────────────
 .footer {
   border-top: 1px solid var(--border);
   padding: 28px 0;

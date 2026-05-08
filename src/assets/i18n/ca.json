@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "about": "Sobre mi",
+    "experience": "Experiència",
+    "skills": "Habilitats",
+    "contact": "Contacte",
+    "hireMe": "Contracta'm"
+  },
+  "hero": {
+    "available": "Disponible per a noves oportunitats",
+    "role": "Desenvolupador Frontend",
+    "bio": "Creo aplicacions web d'alt rendiment i accessibles amb Angular 17 i eines modernes de frontend. Basat a Barcelona — actualment a Capitole.",
+    "viewExperience": "Veure experiència",
+    "getInTouch": "Contacta",
+    "stats": [
+      {
+        "value": "4+",
+        "label": "Anys d'experiència"
+      },
+      {
+        "value": "3+",
+        "label": "A Vueling"
+      },
+      {
+        "value": "3",
+        "label": "Idiomes parlats"
+      }
+    ]
+  },
+  "about": {
+    "label": "Sobre mi",
+    "titleLine1": "Dissenyant",
+    "titleLine2": "interfícies que importen.",
+    "p1": "Sóc Desenvolupador Frontend amb més de 4 anys d'experiència construint aplicacions web escalables i accessibles. Actualment a <strong>Vueling</strong> — una de les aerolínies líders d'Europa — on treballo dins d'un equip de producte entregant solucions comercials usades per milions de passatgers.",
+    "p2": "La meva especialitat principal és l'<strong>ecosistema Angular</strong>: arquitectura de components, gestió d'estat amb NgRx, optimització del rendiment i testing amb Jasmine i Cypress. Em preocupa el codi net i mantenible i les experiències d'usuari ràpides i accessibles.",
+    "p3": "Més enllà del codi, contribueixo als processos de l'equip: definició de roadmaps, pipelines CI/CD i col·laboració multidisciplinària en entorns Agile.",
+    "linkedinLabel": "LinkedIn",
+    "emailLabel": "Envia'm un correu",
+    "educationTitle": "Educació",
+    "values": [
+      {
+        "icon": "⚡",
+        "name": "Rendiment",
+        "desc": "Optimitzant temps de càrrega i eficiència en execució"
+      },
+      {
+        "icon": "♿",
+        "name": "Accessibilitat",
+        "desc": "Construint per a cada usuari i dispositiu"
+      },
+      {
+        "icon": "🧩",
+        "name": "Reutilitzabilitat",
+        "desc": "Llibreries Angular CDK i components compartits"
+      },
+      {
+        "icon": "🔁",
+        "name": "Agile",
+        "desc": "Scrum, CI/CD i entrega iterativa"
+      }
+    ]
+  },
+  "experience": {
+    "label": "Historial laboral",
+    "title": "Experiència",
+    "currentBadge": "● Actual",
+    "tabBadgeCurrent": "Actual",
+    "items": {
+      "vueling-mid": {
+        "role": "Desenvolupador Frontend Mid",
+        "period": "Mar 2023 — Actualitat",
+        "duration": "3+ anys",
+        "description": "Treballo dins d'un equip de producte encarregat d'entregar solucions web comercials per a una de les aerolínies líders d'Europa. Desenvolupo i optimitzo funcionalitats de serveis ancil·lars amb especial atenció al rendiment, l'accessibilitat i l'experiència d'usuari. He integrat components reutilitzables i construït biblioteques amb Angular CDK per reduir la duplicitat a la plataforma. Participo activament en pipelines CI/CD, desplegaments en producció i cerimònies Agile/Scrum."
+      },
+      "vueling-junior": {
+        "role": "Desenvolupador Junior CI & RPA",
+        "period": "Sep 2022 — Mar 2023",
+        "duration": "7 mesos",
+        "description": "Vaig treballar en projectes d'Intel·ligència Conversacional i Automatització de Processos Robòtics dins de l'ecosistema digital de Vueling. Vaig donar suport a fluxos d'automatització i vaig contribuir a la capa conversacional usant Cognigy."
+      },
+      "vueling-intern": {
+        "role": "Desenvolupador Frontend Angular Junior",
+        "period": "Jun 2022 — Sep 2022",
+        "duration": "4 mesos",
+        "description": "Incorporació a l'stack tecnològic de Vueling a través del programa IT University. Vaig participar en la preparació i integració de materials multimèdia en aplicacions web seguint les directrius de l'equip de disseny."
+      },
+      "isadata-2": {
+        "role": "Becari de Desenvolupament",
+        "period": "Des 2021 — Mar 2022",
+        "duration": "4 mesos",
+        "description": "Pràctiques de desenvolupament web full-stack. Vaig col·laborar en el manteniment d'aplicacions web i en el desenvolupament de noves funcionalitats."
+      },
+      "isadata-1": {
+        "role": "Becari de Desenvolupament Web",
+        "period": "Feb 2021 — Jun 2021",
+        "duration": "5 mesos",
+        "description": "Primera experiència professional en desenvolupament web. Vaig contribuir al desenvolupament i manteniment d'aplicacions informàtiques en entorns web."
+      },
+      "everis": {
+        "role": "Becari de Desenvolupament",
+        "period": "Feb 2020 — Mar 2020",
+        "duration": "2 mesos",
+        "description": "Pràctiques d'inici de carrera en una consultora tecnològica líder. Primera aproximació als fluxos de desenvolupament empresarial."
+      }
+    }
+  },
+  "skills": {
+    "label": "Stack tecnològic",
+    "title": "Habilitats",
+    "fullListLabel": "Llista completa de tecnologies",
+    "categories": {
+      "core": {
+        "name": "Principal"
+      },
+      "styling": {
+        "name": "Estils"
+      },
+      "testing": {
+        "name": "Testing"
+      },
+      "tooling": {
+        "name": "Eines"
+      }
+    }
+  },
+  "contact": {
+    "label": "Posa't en contacte",
+    "titleLine1": "Treballem",
+    "titleLine2": "junts.",
+    "bio": "Estic obert a noves oportunitats — ja sigui un rol a temps complet, un contracte o una col·laboració en projecte. Si busques un desenvolupador frontend que conegui Angular a fons i es preocupi per la qualitat, parlem.",
+    "ctaTitle": "Disponible",
+    "ctaText": "Busco un rol frontend mid/senior en un equip orientat a producte. Expert en Angular amb experiència en CI/CD i Agile.",
+    "sendEmail": "Envia'm un correu",
+    "links": [
+      {
+        "label": "Correu",
+        "desc": "La millor manera de contactar"
+      },
+      {
+        "label": "LinkedIn",
+        "desc": "Xarxa professional"
+      },
+      {
+        "label": "Ubicació",
+        "desc": "Obert a remot i híbrid"
+      }
+    ],
+    "footer": "Creat amb Angular 17 & TypeScript · Gerard Fernández García"
+  },
+  "education": {
+    "items": [
+      {
+        "degree": "CFGS — Desenvolupament d'Aplicacions Web (DAW)"
+      },
+      {
+        "degree": "CFGS — Desenvolupament d'Aplicacions Multiplataforma (DAM)"
+      },
+      {
+        "degree": "Batxillerat Tecnològic"
+      }
+    ]
+  }
+}

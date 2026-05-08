@@ -1,0 +1,15 @@
+<div class="lang-switcher">
+  @for (lang of i18n.languages; track lang.code) {
+    <button
+      class="lang-btn"
+      [class.active]="i18n.lang() === lang.code"
+      (click)="setLang(lang.code)"
+      [attr.aria-label]="lang.label"
+    >
+      {{ lang.label }}
+    </button>
+    @if (!$last) {
+      <span class="lang-divider"></span>
+    }
+  }
+</div>

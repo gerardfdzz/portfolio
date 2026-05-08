@@ -1,5 +1,9 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, signal } from '@angular/core';
+import {
+  Component, OnInit, OnDestroy, ElementRef, ViewChild,
+  inject, signal, effect, untracked
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-hero',
@@ -11,24 +15,35 @@ import { CommonModule } from '@angular/common';
 export class HeroComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
+  i18n = inject(I18nService);
   displayedText = signal('');
-  private fullText = 'Frontend Developer';
+
   private typewriterInterval: ReturnType<typeof setInterval> | null = null;
   private animFrame: number | null = null;
   private ctx!: CanvasRenderingContext2D;
   private particles: Particle[] = [];
 
-  readonly stats = [
-    { value: '4+', label: 'Years of experience' },
-    { value: '3+', label: 'At Vueling' },
-    { value: '3', label: 'Spoken languages' },
-  ];
+  readonly techBadges = ['Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'GitFlow', 'SCRUM'];
 
-  readonly techBadges = ['Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'Cypress', 'CI/CD'];
+  constructor() {
+    effect(() => {
+      const t = this.i18n.t();
+      if (!t) return;
+      const role = t.hero.role;
+
+      untracked(() => {
+        if (this.typewriterInterval) {
+          clearInterval(this.typewriterInterval);
+          this.typewriterInterval = null;
+        }
+        this.displayedText.set('');
+        this.startTypewriter(role);
+      });
+    });
+  }
 
   ngOnInit() {
     this.initCanvas();
-    this.startTypewriter();
   }
 
   ngOnDestroy() {
@@ -36,18 +51,21 @@ export class HeroComponent implements OnInit, OnDestroy {
     if (this.animFrame) cancelAnimationFrame(this.animFrame);
   }
 
-  private startTypewriter() {
+  private startTypewriter(text: string) {
     let i = 0;
     setTimeout(() => {
       this.typewriterInterval = setInterval(() => {
-        if (i < this.fullText.length) {
-          this.displayedText.update(t => t + this.fullText[i]);
+        if (i < text.length) {
+          this.displayedText.update(current => current + text[i]);
           i++;
         } else {
-          if (this.typewriterInterval) clearInterval(this.typewriterInterval);
+          if (this.typewriterInterval) {
+            clearInterval(this.typewriterInterval);
+            this.typewriterInterval = null;
+          }
         }
       }, 80);
-    }, 800);
+    }, 400);
   }
 
   private initCanvas() {
@@ -91,7 +109,6 @@ export class HeroComponent implements OnInit, OnDestroy {
     for (const p of this.particles) {
       p.x += p.vx;
       p.y += p.vy;
-
       if (p.x < 0) p.x = canvas.width;
       if (p.x > canvas.width) p.x = 0;
       if (p.y < 0) p.y = canvas.height;
@@ -108,7 +125,6 @@ export class HeroComponent implements OnInit, OnDestroy {
         const dx = this.particles[i].x - this.particles[j].x;
         const dy = this.particles[i].y - this.particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-
         if (dist < 100) {
           this.ctx.beginPath();
           this.ctx.moveTo(this.particles[i].x, this.particles[i].y);

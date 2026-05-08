@@ -1,3 +1,4 @@
+@if (i18n.t(); as t) {
 <section class="hero">
   <canvas #canvas class="hero-canvas"></canvas>
 
@@ -7,7 +8,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow animate-fade-up">
         <span class="status-dot"></span>
-        <span>Available for new opportunities</span>
+        <span>{{ t.hero.available }}</span>
       </div>
 
       <h1 class="hero-name animate-fade-up" style="animation-delay: 0.1s">
@@ -22,9 +23,7 @@
       </div>
 
       <p class="hero-bio animate-fade-up" style="animation-delay: 0.3s">
-        Building high-performance, accessible web applications with
-        <strong>Angular 17</strong> and modern frontend tooling.
-        Based in <strong>Barcelona</strong> — currently at Capitole.
+        {{ t.hero.bio }}
       </p>
 
       <div class="hero-badges animate-fade-up" style="animation-delay: 0.4s">
@@ -34,9 +33,9 @@
       </div>
 
       <div class="hero-actions animate-fade-up" style="animation-delay: 0.5s">
-        <a href="#experience" class="btn-primary">View experience</a>
+        <a href="#experience" class="btn-primary">{{ t.hero.viewExperience }}</a>
         <a href="mailto:fernandezgarciagerard@gmail.com" class="btn-secondary">
-          Get in touch
+          {{ t.hero.getInTouch }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -45,7 +44,7 @@
       </div>
 
       <div class="hero-stats animate-fade-up" style="animation-delay: 0.6s">
-        @for (stat of stats; track stat.label) {
+        @for (stat of t.hero.stats; track stat.label) {
           <div class="stat">
             <span class="stat-value">{{ stat.value }}</span>
             <span class="stat-label">{{ stat.label }}</span>
@@ -89,3 +88,4 @@
     </div>
   </div>
 </section>
+}

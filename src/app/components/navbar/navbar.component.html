@@ -7,29 +7,78 @@
 
     <ul class="nav-links">
       @for (link of navLinks; track link.label) {
-        <li>
-          <a [href]="link.href" class="nav-link">{{ link.label }}</a>
-        </li>
+        <li><a [href]="link.href" class="nav-link">{{ link.label }}</a></li>
       }
+
+      <li class="lang-switcher">
+        <button class="lang-trigger" (click)="toggleLangMenu()" [attr.aria-expanded]="langMenuOpen()">
+          <span class="lang-code">{{ i18n.lang().toUpperCase() }}</span>
+          <svg class="lang-chevron" [class.open]="langMenuOpen()"
+               width="10" height="10" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        @if (langMenuOpen()) {
+          <div class="lang-dropdown" role="menu">
+            @for (lang of i18n.languages; track lang.code) {
+              <button
+                class="lang-option"
+                [class.active]="i18n.lang() === lang.code"
+                (click)="setLang(lang.code)"
+                role="menuitem"
+              >
+                <span class="lang-option-code">{{ lang.label }}</span>
+                @if (i18n.lang() === lang.code) {
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                }
+              </button>
+            }
+          </div>
+        }
+      </li>
+
       <li>
-        <a href="mailto:fernandezgarciagerard@gmail.com" class="nav-cta">
-          Hire me
-        </a>
+        @if (i18n.t(); as t) {
+          <a href="mailto:fernandezgarciagerard@gmail.com" class="nav-cta">
+            {{ t.nav.hireMe }}
+          </a>
+        }
       </li>
     </ul>
 
     <button class="menu-btn" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
 
-  <!-- Mobile menu -->
   <div class="mobile-menu" [class.open]="menuOpen()">
     @for (link of navLinks; track link.label) {
       <a [href]="link.href" class="mobile-link" (click)="closeMenu()">{{ link.label }}</a>
     }
-    <a href="mailto:fernandezgarciagerard@gmail.com" class="mobile-cta" (click)="closeMenu()">Hire me</a>
+
+    <div class="mobile-lang">
+      <div class="mobile-lang-pills">
+        @for (lang of i18n.languages; track lang.code) {
+          <button
+            class="mobile-lang-pill"
+            [class.active]="i18n.lang() === lang.code"
+            (click)="setLang(lang.code)"
+          >
+            {{ lang.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    @if (i18n.t(); as t) {
+      <a href="mailto:fernandezgarciagerard@gmail.com" class="mobile-cta" (click)="closeMenu()">
+        {{ t.nav.hireMe }}
+      </a>
+    }
   </div>
 </nav>
