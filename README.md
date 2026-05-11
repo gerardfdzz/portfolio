@@ -45,22 +45,32 @@ Output in `dist/portfolio/`
 src/
 ├── app/
 │   ├── components/
-│   │   ├── navbar/       # Fixed navigation with scroll detection
-│   │   ├── hero/         # Landing section with canvas particle system
-│   │   ├── about/        # Bio, education, values
-│   │   ├── experience/   # Interactive work history timeline
-│   │   ├── skills/       # Skill bars by category
-│   │   └── contact/      # Contact info and CTA
+│   │   ├── navbar/           # Fixed navigation with scroll detection and language switcher
+│   │   ├── hero/             # Landing section with canvas particle system
+│   │   ├── about/            # Bio, education, values
+│   │   ├── experience/       # Interactive work history timeline
+│   │   ├── skills/           # Skill cards by category with animations
+│   │   ├── contact/          # Contact info and CTA
+│   │   └── lang-switcher/    # Standalone language selector component
 │   └── models/
 │       ├── portfolio.model.ts        # TypeScript interfaces
-│       └── portfolio-data.service.ts # All portfolio data
+│       ├── portfolio-data.service.ts # Static portfolio data (skills, experience, links)
+│       └── i18n.service.ts           # Translations service and Translations interface
+├── assets/
+│   └── i18n/
+│       ├── en.json           # English translations
+│       ├── es.json           # Spanish translations
+│       └── ca.json           # Catalan translations
+├── favicon.svg            # SVG favicon
 ├── styles.scss            # Global styles & CSS variables
 └── index.html
 ```
 
 ## Customization
 
-All portfolio content is in `src/app/models/portfolio-data.service.ts` — edit that file to update your experience, skills, and education without touching any HTML.
+- **Content & translations**: edit the JSON files in `src/assets/i18n/` for each language.
+- **Static data** (skills, links): edit `src/app/models/portfolio-data.service.ts`.
+- **Adding a new language**: add a new JSON file in `src/assets/i18n/`, register the language code in `i18n.service.ts`, and add the option to the lang switcher.
 
 ## Deployment
 
