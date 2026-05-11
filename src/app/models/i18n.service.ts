@@ -65,6 +65,7 @@ export interface Translations {
     bio: string;
     ctaTitle: string;
     ctaText: string;
+    ctaTags: string[];
     sendEmail: string;
     links: { label: string; desc: string }[];
     footer: string;

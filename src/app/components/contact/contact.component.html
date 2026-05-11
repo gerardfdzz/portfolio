@@ -56,9 +56,9 @@
             <h3 class="cta-title">{{ t.contact.ctaTitle }}</h3>
             <p class="cta-text">{{ t.contact.ctaText }}</p>
             <div class="cta-tags">
-              <span class="tag">Full-time</span>
-              <span class="tag">Contract</span>
-              <span class="tag">Remote / Barcelona</span>
+              @for (tag of t.contact.ctaTags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
             </div>
             <a href="mailto:fernandezgarciagerard@gmail.com" class="cta-btn">
               {{ t.contact.sendEmail }}
