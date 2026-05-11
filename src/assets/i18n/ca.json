@@ -9,7 +9,7 @@
   "hero": {
     "available": "Disponible per a noves oportunitats",
     "role": "Desenvolupador Frontend",
-    "bio": "Creo aplicacions web d'alt rendiment i accessibles amb Angular 17 i eines modernes de frontend. Basat a Barcelona — actualment a Capitole.",
+    "bio": "Creo aplicacions web d'alt rendiment i accessibles amb Angular 17 i eines modernes de frontend. Visc a Barcelona — actualment a Capitole.",
     "viewExperience": "Veure experiència",
     "getInTouch": "Contacta",
     "stats": [
@@ -129,7 +129,7 @@
     "titleLine2": "junts.",
     "bio": "Estic obert a noves oportunitats — ja sigui un rol a temps complet, un contracte o una col·laboració en projecte. Si busques un desenvolupador frontend que conegui Angular a fons i es preocupi per la qualitat, parlem.",
     "ctaTitle": "Disponible",
-    "ctaText": "Busco un rol frontend mid/senior en un equip orientat a producte. Expert en Angular amb experiència en CI/CD i Agile.",
+    "ctaText": "Busco un rol frontend mid en un equip orientat a producte. Expert en Angular amb experiència en CI/CD i Agile.",
     "sendEmail": "Envia'm un correu",
     "links": [
       {

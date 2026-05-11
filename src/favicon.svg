@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#0d0d14"/>
+  <text
+    x="16"
+    y="23"
+    font-family="'Syne', 'Arial Black', sans-serif"
+    font-size="21"
+    font-weight="800"
+    fill="white"
+    text-anchor="middle"
+  >G</text>
+  <circle cx="26" cy="7" r="3" fill="#6C63FF"/>
+</svg>

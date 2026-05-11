@@ -9,7 +9,7 @@
   "hero": {
     "available": "Available for new opportunities",
     "role": "Frontend Developer",
-    "bio": "Building high-performance, accessible web applications with Angular 17 and modern frontend tooling. Based in Barcelona — currently at Capitole.",
+    "bio": "Building high-performance, accessible web applications with Angular 17 and modern frontend tooling. Living in Barcelona — currently at Capitole.",
     "viewExperience": "View experience",
     "getInTouch": "Get in touch",
     "stats": [
@@ -129,7 +129,7 @@
     "titleLine2": "together.",
     "bio": "I'm currently open to new opportunities — whether it's a full-time role, a contract, or a project collaboration. If you're looking for a frontend developer who knows Angular inside-out and cares about quality, let's talk.",
     "ctaTitle": "Open to work",
-    "ctaText": "Looking for a senior/mid frontend role in a product-driven team. Angular expert with full CI/CD and Agile experience.",
+    "ctaText": "Looking for a mid frontend role in a product-driven team. Angular expert with full CI/CD and Agile experience.",
     "sendEmail": "Send me an email",
     "links": [
       {
