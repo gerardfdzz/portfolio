@@ -28,6 +28,11 @@ export class ContactComponent {
       icon: 'location',
       value: 'Barcelona, Spain',
       href: null,
-    }
+    },
+    {
+      icon: 'github',
+      value: 'github.com/gerardfdzz',
+      href: 'https://github.com/gerardfdzz',
+    },
   ];
 }

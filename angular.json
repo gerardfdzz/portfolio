@@ -75,6 +75,11 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "cache": {
+      "enabled": true,
+      "path": "C:/Users/GerardFernandezGarci/AppData/Local/Temp/ng-cache/portfolio",
+      "environment": "all"
+    }
   }
 }

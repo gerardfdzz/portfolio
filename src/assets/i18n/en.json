@@ -144,6 +144,10 @@
       {
         "label": "Location",
         "desc": "Open to remote & hybrid"
+      },
+      {
+        "label": "GitHub",
+        "desc": "Open source & personal projects"
       }
     ],
     "footer": "Built with Angular 17 & TypeScript · Gerard Fernández García"

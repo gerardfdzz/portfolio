@@ -144,6 +144,10 @@
       {
         "label": "Ubicación",
         "desc": "Abierto a remoto e híbrido"
+      },
+      {
+        "label": "GitHub",
+        "desc": "Proyectos open source y personales"
       }
     ],
     "footer": "Creado con Angular 17 & TypeScript · Gerard Fernández García"
