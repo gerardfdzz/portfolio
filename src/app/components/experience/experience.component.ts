@@ -1,5 +1,4 @@
 import { Component, inject, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
 import { I18nService } from '../../models/i18n.service';
 import { Experience } from '../../models/portfolio.model';
@@ -7,7 +6,7 @@ import { Experience } from '../../models/portfolio.model';
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']
 })

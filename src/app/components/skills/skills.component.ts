@@ -2,14 +2,13 @@ import {
   Component, inject, signal,
   ElementRef, OnDestroy, NgZone, effect, untracked
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
 import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })

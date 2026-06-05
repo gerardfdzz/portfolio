@@ -103,9 +103,13 @@
   margin-left: 8px;
 
   &:hover {
-    background: lighten(#6c63ff, 8%);
-    transform: translateY(-1px);
+    filter: brightness(1.12);
     box-shadow: 0 8px 24px var(--accent-glow);
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
   }
 }
 

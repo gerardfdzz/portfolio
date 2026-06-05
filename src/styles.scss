@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+/* Google Fonts loaded via <link> in index.html — no @import needed here */
 
 :root {
   --bg:          #0a0a0f;
@@ -10,7 +10,7 @@
 
   --text-primary:   #f0ede8;
   --text-secondary: #9896a4;
-  --text-muted:     #5c5b6b;
+  --text-muted:     #7a7989; /* was #5c5b6b — ratio ~3.5:1, WCAG fail; now ~4.7:1 */
 
   --accent:       #6c63ff;
   --accent-2:     #ff6b6b;
@@ -166,6 +166,29 @@ a {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Focus styles — keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion — respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .animate-fade-up {

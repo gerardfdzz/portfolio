@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
 import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })

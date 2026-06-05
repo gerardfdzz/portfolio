@@ -93,12 +93,7 @@
  
 .name-accent {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 50%, var(--accent-2) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 4s ease infinite;
+  color: var(--accent);
 }
  
 .hero-role {
@@ -127,9 +122,6 @@
   line-height: 1.75;
   max-width: 500px;
   margin-bottom: 28px;
-  text-align: justify;
-  text-justify: inter-word;
- 
   strong { color: var(--text-primary); font-weight: 600; }
 }
  
@@ -163,13 +155,18 @@
   border-radius: var(--radius-sm);
   transition: var(--transition);
   white-space: nowrap;
- 
+
   &:hover {
-    transform: translateY(-2px);
+    filter: brightness(1.12);
     box-shadow: 0 12px 32px var(--accent-glow);
   }
+
+  &:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
 }
- 
+
 .btn-secondary {
   display: flex;
   align-items: center;
@@ -183,15 +180,19 @@
   font-weight: 500;
   border-radius: var(--radius-sm);
   transition: var(--transition);
- 
+
   &:hover {
     border-color: var(--accent);
     color: var(--accent);
-    transform: translateY(-2px);
- 
+
     svg { transform: translateX(4px); }
   }
- 
+
+  &:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
+
   svg { transition: transform var(--transition); }
 }
  

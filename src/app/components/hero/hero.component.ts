@@ -2,13 +2,12 @@ import {
   Component, OnInit, OnDestroy, ElementRef, ViewChild,
   inject, signal, effect, untracked
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
@@ -22,6 +21,13 @@ export class HeroComponent implements OnInit, OnDestroy {
   private animFrame: number | null = null;
   private ctx!: CanvasRenderingContext2D;
   private particles: Particle[] = [];
+  private visibilityObserver: IntersectionObserver | null = null;
+
+  /** Stored reference so the resize listener can be removed in ngOnDestroy */
+  private readonly resizeHandler = () => {
+    this.resizeCanvas();
+    this.createParticles();
+  };
 
   readonly techBadges = ['Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'GitFlow', 'SCRUM'];
 
@@ -49,6 +55,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.typewriterInterval) clearInterval(this.typewriterInterval);
     if (this.animFrame) cancelAnimationFrame(this.animFrame);
+    window.removeEventListener('resize', this.resizeHandler);
+    this.visibilityObserver?.disconnect();
   }
 
   private startTypewriter(text: string) {
@@ -69,16 +77,45 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   private initCanvas() {
+    // Respect user preference for reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = this.canvasRef.nativeElement;
     this.ctx = canvas.getContext('2d')!;
-    this.resizeCanvas();
-    this.createParticles();
-    this.animateParticles();
 
-    window.addEventListener('resize', () => {
+    const start = () => {
       this.resizeCanvas();
       this.createParticles();
-    });
+      this.setupVisibilityPause();
+      this.animateParticles();
+      window.addEventListener('resize', this.resizeHandler);
+    };
+
+    // Defer canvas init until the browser is idle to avoid blocking LCP
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(start, { timeout: 1000 });
+    } else {
+      setTimeout(start, 100);
+    }
+  }
+
+  /** Pause/resume the animation loop when the hero section leaves/enters viewport */
+  private setupVisibilityPause() {
+    const section = this.canvasRef.nativeElement.closest('section');
+    if (!section) return;
+
+    this.visibilityObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        if (this.animFrame) {
+          cancelAnimationFrame(this.animFrame);
+          this.animFrame = null;
+        }
+      } else if (!this.animFrame) {
+        this.animateParticles();
+      }
+    }, { threshold: 0 });
+
+    this.visibilityObserver.observe(section);
   }
 
   private resizeCanvas() {
@@ -89,7 +126,9 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private createParticles() {
     this.particles = [];
-    const count = Math.floor(window.innerWidth / 12);
+    // Fewer particles on smaller viewports to keep O(n^2) connections manageable
+    const density = window.innerWidth < 768 ? 30 : 15;
+    const count = Math.floor(window.innerWidth / density);
     for (let i = 0; i < count; i++) {
       this.particles.push({
         x: Math.random() * window.innerWidth,

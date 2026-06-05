@@ -1,11 +1,10 @@
-import { Component, HostListener, signal, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, signal, inject, computed } from '@angular/core';
 import { I18nService, Lang } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
@@ -15,7 +14,8 @@ export class NavbarComponent {
   menuOpen = signal(false);
   langMenuOpen = signal(false);
 
-  get navLinks() {
+  /** computed() so navLinks only recalculates when i18n.t() changes, not on every CD cycle */
+  readonly navLinks = computed(() => {
     const t = this.i18n.t();
     if (!t) return [
       { label: 'About',      href: '#about' },
@@ -29,7 +29,7 @@ export class NavbarComponent {
       { label: t.nav.skills,     href: '#skills' },
       { label: t.nav.contact,    href: '#contact' },
     ];
-  }
+  });
 
   @HostListener('window:scroll')
   onScroll() { this.scrolled.set(window.scrollY > 40); }

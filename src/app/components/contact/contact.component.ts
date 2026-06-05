@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { I18nService } from '../../models/i18n.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })

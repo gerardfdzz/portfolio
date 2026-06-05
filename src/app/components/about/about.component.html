@@ -36,7 +36,7 @@
           <div class="edu-list">
             @for (edu of education(); track edu.degree) {
               <div class="edu-item">
-                <div class="edu-icon">🎓</div>
+                <span class="edu-icon" aria-hidden="true">🎓</span>
                 <div class="edu-info">
                   <p class="edu-degree">{{ edu.degree }}</p>
                   <p class="edu-institution">{{ edu.institution }}</p>
@@ -50,7 +50,7 @@
         <div class="values-grid">
           @for (value of t.about.values; track value.name) {
             <div class="value-card">
-              <span class="value-icon">{{ value.icon }}</span>
+              <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
               <p class="value-name">{{ value.name }}</p>
               <p class="value-desc">{{ value.desc }}</p>
             </div>
