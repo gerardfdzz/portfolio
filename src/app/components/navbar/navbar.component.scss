@@ -113,6 +113,22 @@
   }
 }
 
+.nav-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition), background var(--transition);
+
+  &:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
 .menu-btn {
   display: none;
   flex-direction: column;
@@ -195,7 +211,16 @@
   min-width: 90px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
   z-index: 100;
-  animation: fadeInUp 0.15s ease forwards;
+  /* @starting-style replaces the old fadeInUp keyframe — no JS needed */
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: top right;
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
 }
 
 .lang-option {

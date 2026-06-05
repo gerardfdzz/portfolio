@@ -5,10 +5,14 @@
     <h2 class="section-title">{{ t.experience.title }}</h2>
 
     <div class="exp-layout">
-      <div class="exp-sidebar">
+      <div class="exp-sidebar" role="tablist" [attr.aria-label]="t.experience.label">
         @for (exp of experiences(); track exp.id) {
           <button
             class="exp-tab"
+            role="tab"
+            [id]="'tab-' + exp.id"
+            [attr.aria-selected]="activeId() === exp.id"
+            [attr.aria-controls]="'panel-' + exp.id"
             [class.active]="activeId() === exp.id"
             [class.highlight]="exp.highlight"
             (click)="setActive(exp.id)"
@@ -23,7 +27,12 @@
         }
       </div>
 
-      <div class="exp-detail">
+      <div
+        class="exp-detail"
+        role="tabpanel"
+        [id]="'panel-' + activeExperience().id"
+        [attr.aria-labelledby]="'tab-' + activeExperience().id"
+      >
         <div class="detail-header">
           <div class="detail-title-row">
             <h3 class="detail-role">{{ activeExperience().role }}</h3>

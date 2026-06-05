@@ -1,6 +1,6 @@
 import { Injectable, inject, computed } from '@angular/core';
 import { I18nService } from './i18n.service';
-import { Experience, SkillCategory, Education } from '../models/portfolio.model';
+import { Experience, SkillCategory, Education, Project } from '../models/portfolio.model';
 
 const EXPERIENCE_STATIC = [
   {
@@ -85,6 +85,29 @@ const SKILL_CATEGORIES_STATIC = [
   },
 ];
 
+const PROJECTS_STATIC: Project[] = [
+  {
+    id: 'portfolio',
+    title: 'gerardfg.dev',
+    description: 'This portfolio. Angular 17 standalone components, Signals-based state, fetch-based i18n (EN/CA/ES), canvas particle system, and SCSS design system. Deployed on Vercel with Vercel Analytics.',
+    stack: ['Angular 17', 'TypeScript', 'Signals', 'SCSS', 'i18n', 'Vercel'],
+    githubUrl: 'https://github.com/gerardfdzz',
+    liveUrl: 'https://www.gerardfg.dev',
+    status: 'live',
+    featured: true,
+  },
+  {
+    id: 'xeic-runners',
+    title: 'XEIC Runners',
+    description: 'Angular application for managing and visualising running race results. Features real-time leaderboards, participant management, and responsive design for both organisers and athletes.',
+    stack: ['Angular', 'TypeScript', 'SCSS'],
+    githubUrl: undefined,
+    liveUrl: undefined,
+    status: 'wip',
+    featured: true,
+  },
+];
+
 const EDUCATION_STATIC = [
   { institution: 'IFP Grupo Planeta', period: '2020 – 2021' },
   { institution: 'IFP Grupo Planeta', period: '2018 – 2020' },
@@ -125,6 +148,8 @@ export class PortfolioDataService {
       })),
     }) satisfies SkillCategory);
   });
+
+  readonly projects = computed<Project[]>(() => PROJECTS_STATIC);
 
   readonly education = computed<Education[]>(() => {
     const t = this.i18n.t();

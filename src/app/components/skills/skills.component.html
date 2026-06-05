@@ -4,40 +4,16 @@
     <p class="section-label">{{ t.skills.label }}</p>
     <h2 class="section-title">{{ t.skills.title }}</h2>
 
-    <div class="skills-grid">
-      @for (category of skillCategories(); track category.name; let ci = $index) {
-        <div
-          class="skill-category"
-          [class.card-visible]="isCardVisible(ci)"
-          [attr.data-card-index]="ci"
-        >
-          <div class="card-shimmer"></div>
-
-          <div class="category-header">
-            <span class="category-icon" aria-hidden="true">{{ category.icon }}</span>
-            <h3 class="category-name">{{ category.name }}</h3>
+    <div class="skill-tiers">
+      @for (tier of skillTiers(); track tier.key) {
+        <div class="tier">
+          <div class="tier-header">
+            <h3 class="tier-label">{{ tier.label }}</h3>
+            <span class="tier-count">{{ tier.skills.length }}</span>
           </div>
-
-          <div class="skills-list">
-            @for (skill of category.skills; track skill.name; let si = $index) {
-              <div
-                class="skill-item"
-                [attr.data-bar-key]="barKey(ci, si)"
-              >
-                <div class="skill-info">
-                  <span class="skill-name">{{ skill.name }}</span>
-                  <span
-                    class="skill-level"
-                    [class.level-visible]="isBarAnimated(ci, si)"
-                  >{{ skill.level }}%</span>
-                </div>
-                <div class="skill-bar-track">
-                  <div
-                    class="skill-bar-fill"
-                    [style.width.%]="isBarAnimated(ci, si) ? skill.level : 0"
-                  ></div>
-                </div>
-              </div>
+          <div class="tier-tags">
+            @for (skill of tier.skills; track skill) {
+              <span class="tag">{{ skill }}</span>
             }
           </div>
         </div>

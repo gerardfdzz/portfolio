@@ -28,6 +28,17 @@ export interface Education {
   period: string;
 }
 
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  stack: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  status: 'live' | 'wip' | 'archived';
+  featured: boolean;
+}
+
 export interface ExperienceRaw {
   id: string;
   company: string;

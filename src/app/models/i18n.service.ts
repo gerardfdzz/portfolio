@@ -56,7 +56,15 @@ export interface Translations {
     label: string;
     title: string;
     fullListLabel: string;
+    tiers: { expert: string; proficient: string; familiar: string };
     categories: Record<string, SkillCategoryTranslation>;
+  };
+  projects: {
+    label: string;
+    title: string;
+    statusLive: string;
+    statusWip: string;
+    liveDemo: string;
   };
   contact: {
     label: string;

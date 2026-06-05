@@ -1,7 +1,4 @@
-import {
-  Component, inject, signal,
-  ElementRef, OnDestroy, NgZone, effect, untracked
-} from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { PortfolioDataService } from '../../models/portfolio-data.service';
 import { I18nService } from '../../models/i18n.service';
 
@@ -12,18 +9,11 @@ import { I18nService } from '../../models/i18n.service';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnDestroy {
-  i18n  = inject(I18nService);
-  private host = inject(ElementRef<HTMLElement>);
-  private zone = inject(NgZone);
+export class SkillsComponent {
+  i18n = inject(I18nService);
+  private data = inject(PortfolioDataService);
 
-  readonly skillCategories = inject(PortfolioDataService).skillCategories;
-  readonly visibleCards    = signal<Set<number>>(new Set());
-  readonly animatedBars    = signal<Set<string>>(new Set());
-
-  private cardObserver: IntersectionObserver | null = null;
-  private barObserver:  IntersectionObserver | null = null;
-  private initTimeout:  ReturnType<typeof setTimeout> | null = null;
+  readonly skillCategories = this.data.skillCategories;
 
   readonly allTech = [
     'Angular 17', 'TypeScript', 'NgRx', 'RxJS', 'Angular CDK',
@@ -33,95 +23,48 @@ export class SkillsComponent implements OnDestroy {
     'Scrum', 'Agile', 'Cognigy'
   ];
 
-  constructor() {
-    effect(() => {
-      const t = this.i18n.t();
-      if (!t) return;
+  /**
+   * Compute tier groups from existing skill levels.
+   * Expert >= 85, Proficient >= 70, Familiar < 70.
+   */
+  readonly skillTiers = computed(() => {
+    const t = this.i18n.t();
+    const cats = this.skillCategories();
 
-      untracked(() => {
-        if (this.initTimeout) clearTimeout(this.initTimeout);
-        this.initTimeout = setTimeout(() => {
-          this.zone.runOutsideAngular(() => {
-            this.disconnectObservers();
-            this.setupCardObserver();
-            this.setupBarObserver();
-          });
-        }, 50);
-      });
-    });
-  }
+    const expert: string[]     = [];
+    const proficient: string[] = [];
+    const familiar: string[]   = [];
 
-  ngOnDestroy() {
-    if (this.initTimeout) clearTimeout(this.initTimeout);
-    this.disconnectObservers();
-  }
+    for (const cat of cats) {
+      for (const skill of cat.skills) {
+        if (skill.level >= 85)      expert.push(skill.name);
+        else if (skill.level >= 70) proficient.push(skill.name);
+        else                        familiar.push(skill.name);
+      }
+    }
 
-  private disconnectObservers() {
-    this.cardObserver?.disconnect();
-    this.barObserver?.disconnect();
-    this.cardObserver = null;
-    this.barObserver  = null;
-  }
+    // Extras from allTech not already in any category
+    const categorised = new Set(cats.flatMap(c => c.skills.map(s => s.name)));
+    for (const tech of this.allTech) {
+      if (!categorised.has(tech)) familiar.push(tech);
+    }
 
-  private setupCardObserver() {
-    const cards = Array.from(
-      this.host.nativeElement.querySelectorAll('[data-card-index]')
-    ) as HTMLElement[];
-    if (!cards.length) return;
-
-    this.cardObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          const idx = Number((entry.target as HTMLElement).dataset['cardIndex']);
-          this.zone.run(() => {
-            this.visibleCards.update(s => {
-              const next = new Set(s);
-              entry.isIntersecting ? next.add(idx) : next.delete(idx);
-              return next;
-            });
-          });
-        });
+    return [
+      {
+        key:    'expert',
+        label:  t?.skills?.tiers?.expert ?? 'Expert',
+        skills: expert,
       },
-      { threshold: 0.1 }
-    );
-
-    cards.forEach((card: HTMLElement) => this.cardObserver!.observe(card));
-  }
-
-  private setupBarObserver() {
-    const items = Array.from(
-      this.host.nativeElement.querySelectorAll('[data-bar-key]')
-    ) as HTMLElement[];
-    if (!items.length) return;
-
-    this.barObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          const el  = entry.target as HTMLElement;
-          const key = el.dataset['barKey'] ?? '';
-
-          const exitedAbove = !entry.isIntersecting && entry.boundingClientRect.top > 0;
-
-          this.zone.run(() => {
-            this.animatedBars.update(s => {
-              const next = new Set(s);
-              if (entry.isIntersecting) {
-                next.add(key);
-              } else if (exitedAbove) {
-                next.delete(key);
-              }
-              return next;
-            });
-          });
-        });
+      {
+        key:    'proficient',
+        label:  t?.skills?.tiers?.proficient ?? 'Proficient',
+        skills: proficient,
       },
-      { threshold: 0.3 }
-    );
-
-    items.forEach((item: HTMLElement) => this.barObserver!.observe(item));
-  }
-
-  isCardVisible(idx: number):            boolean { return this.visibleCards().has(idx); }
-  isBarAnimated(ci: number, si: number): boolean { return this.animatedBars().has(`${ci}-${si}`); }
-  barKey(ci: number, si: number):        string  { return `${ci}-${si}`; }
+      {
+        key:    'familiar',
+        label:  t?.skills?.tiers?.familiar ?? 'Familiar',
+        skills: [...new Set(familiar)],
+      },
+    ].filter(tier => tier.skills.length > 0);
+  });
 }

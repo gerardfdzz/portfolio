@@ -195,7 +195,32 @@
 
   svg { transition: transform var(--transition); }
 }
- 
+
+.btn-cv {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+  border: 1px solid var(--border-2);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  white-space: nowrap;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
+}
+
 .hero-stats {
   display: flex;
   gap: 40px;

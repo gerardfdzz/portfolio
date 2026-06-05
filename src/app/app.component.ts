@@ -3,6 +3,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
 
@@ -14,18 +15,40 @@ import { ContactComponent } from './components/contact/contact.component';
     HeroComponent,
     AboutComponent,
     ExperienceComponent,
+    ProjectsComponent,
     SkillsComponent,
     ContactComponent,
   ],
   template: `
     <div class="noise-overlay"></div>
     <app-navbar />
-    <main>
+    <main id="main-content">
       <app-hero />
-      <app-about />
-      <app-experience />
-      <app-skills />
-      <app-contact />
+      @defer (on viewport) {
+        <app-about />
+      } @placeholder {
+        <div style="min-height:600px"></div>
+      }
+      @defer (on viewport) {
+        <app-experience />
+      } @placeholder {
+        <div style="min-height:500px"></div>
+      }
+      @defer (on viewport) {
+        <app-projects />
+      } @placeholder {
+        <div style="min-height:400px"></div>
+      }
+      @defer (on viewport) {
+        <app-skills />
+      } @placeholder {
+        <div style="min-height:400px"></div>
+      }
+      @defer (on viewport) {
+        <app-contact />
+      } @placeholder {
+        <div style="min-height:400px"></div>
+      }
     </main>
   `
 })

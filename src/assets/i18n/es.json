@@ -108,20 +108,24 @@
     "label": "Stack tecnológico",
     "title": "Habilidades",
     "fullListLabel": "Lista completa de tecnologías",
+    "tiers": {
+      "expert": "Experto",
+      "proficient": "Avanzado",
+      "familiar": "Familiarizado"
+    },
     "categories": {
-      "core": {
-        "name": "Principal"
-      },
-      "styling": {
-        "name": "Estilos"
-      },
-      "testing": {
-        "name": "Testing"
-      },
-      "tooling": {
-        "name": "Herramientas"
-      }
+      "core": { "name": "Principal" },
+      "styling": { "name": "Estilos" },
+      "testing": { "name": "Testing" },
+      "tooling": { "name": "Herramientas" }
     }
+  },
+  "projects": {
+    "label": "Trabajo seleccionado",
+    "title": "Proyectos",
+    "statusLive": "En vivo",
+    "statusWip": "En progreso",
+    "liveDemo": "Ver demo"
   },
   "contact": {
     "label": "Ponte en contacto",
