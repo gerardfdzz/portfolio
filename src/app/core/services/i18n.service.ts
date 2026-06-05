@@ -23,6 +23,7 @@ export interface Translations {
   nav: {
     about: string;
     experience: string;
+    projects: string;
     skills: string;
     contact: string;
     hireMe: string;

@@ -20,12 +20,14 @@ export class NavbarComponent {
     if (!t) return [
       { label: 'About',      href: '#about' },
       { label: 'Experience', href: '#experience' },
+      { label: 'Projects',   href: '#projects' },
       { label: 'Skills',     href: '#skills' },
       { label: 'Contact',    href: '#contact' },
     ];
     return [
       { label: t.nav.about,      href: '#about' },
       { label: t.nav.experience, href: '#experience' },
+      { label: t.nav.projects,   href: '#projects' },
       { label: t.nav.skills,     href: '#skills' },
       { label: t.nav.contact,    href: '#contact' },
     ];

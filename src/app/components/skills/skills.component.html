@@ -4,29 +4,10 @@
     <p class="section-label">{{ t.skills.label }}</p>
     <h2 class="section-title">{{ t.skills.title }}</h2>
 
-    <div class="skill-tiers">
-      @for (tier of skillTiers(); track tier.key) {
-        <div class="tier">
-          <div class="tier-header">
-            <h3 class="tier-label">{{ tier.label }}</h3>
-            <span class="tier-count">{{ tier.skills.length }}</span>
-          </div>
-          <div class="tier-tags">
-            @for (skill of tier.skills; track skill) {
-              <span class="tag">{{ skill }}</span>
-            }
-          </div>
-        </div>
+    <div class="skills-cloud">
+      @for (tech of allTech; track tech) {
+        <span class="tag">{{ tech }}</span>
       }
-    </div>
-
-    <div class="all-skills">
-      <p class="all-skills-label">{{ t.skills.fullListLabel }}</p>
-      <div class="all-skills-tags">
-        @for (tech of allTech; track tech) {
-          <span class="tag">{{ tech }}</span>
-        }
-      </div>
     </div>
   </div>
 </section>

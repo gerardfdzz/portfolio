@@ -88,30 +88,30 @@ const SKILL_CATEGORIES_STATIC = [
 
 const PROJECTS_STATIC: Project[] = [
   {
-    id: 'portfolio',
-    title: 'gerardfg.dev',
+    id:          'portfolio',
+    title:       'gerardfg.dev',
     description: 'This portfolio. Angular 17 standalone components, Signals-based state, HttpClient i18n (EN/CA/ES), canvas particle system, and SCSS design system. Deployed on Vercel with Vercel Analytics.',
-    stack: ['Angular 17', 'TypeScript', 'Signals', 'SCSS', 'i18n', 'Vercel'],
-    githubUrl: PORTFOLIO_CONFIG.github,
-    liveUrl:   PORTFOLIO_CONFIG.domain,
-    status:    'live',
-    featured:  true,
+    stack:       ['Angular 17', 'TypeScript', 'Signals', 'SCSS', 'i18n', 'Vercel'],
+    githubUrl:   'https://github.com/gerardfdzz/portfolio',
+    liveUrl:     undefined,
+    status:      'live',
+    featured:    true,
   },
   {
-    id: 'xeic-runners',
-    title: 'XEIC Runners',
+    id:          'xeic-runners',
+    title:       'XEIC Runners',
     description: 'Angular application for managing and visualising running race results. Features real-time leaderboards, participant management, and responsive design for both organisers and athletes.',
-    stack:     ['Angular', 'TypeScript', 'SCSS'],
-    githubUrl: undefined,
-    liveUrl:   undefined,
-    status:    'wip',
-    featured:  true,
+    stack:       ['Angular', 'TypeScript', 'SCSS'],
+    githubUrl:   'https://github.com/gerardfdzz/XEIC-Runners',
+    liveUrl:     'https://www.xeicrunners.com/',
+    status:      'live',
+    featured:    true,
   },
 ];
 
 const EDUCATION_STATIC = [
-  { institution: 'IFP Grupo Planeta',  period: '2020 - 2021' },
-  { institution: 'IFP Grupo Planeta',  period: '2018 - 2020' },
+  { institution: 'IFP Grupo Planeta',   period: '2020 - 2021' },
+  { institution: 'IFP Grupo Planeta',   period: '2018 - 2020' },
   { institution: "Col·legi Tecla Sala", period: '2016 - 2018' },
 ];
 
@@ -140,8 +140,8 @@ export class PortfolioDataService {
   readonly skillCategories = computed<SkillCategory[]>(() => {
     const t = this.i18n.t();
     return SKILL_CATEGORIES_STATIC.map(cat => ({
-      name:  t?.skills?.categories?.[cat.id]?.name ?? cat.id,
-      icon:  cat.icon,
+      name:   t?.skills?.categories?.[cat.id]?.name ?? cat.id,
+      icon:   cat.icon,
       skills: cat.skills.map(s => ({
         name:     s.name,
         level:    s.level,

@@ -4,82 +4,8 @@
   border-bottom: 1px solid var(--border);
 }
 
-.skill-tiers {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-bottom: 48px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-.tier {
-  padding: 28px 32px;
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 24px;
-  align-items: start;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--border);
-  }
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 24px;
-  }
-}
-
-.tier-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 4px;
-}
-
-.tier-label {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.01em;
-}
-
-.tier-count {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-}
-
-.tier-tags {
+.skills-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* All tech tag cloud */
-.all-skills {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-}
-
-.all-skills-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.all-skills-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
