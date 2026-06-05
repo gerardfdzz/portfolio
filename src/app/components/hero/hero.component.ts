@@ -2,7 +2,7 @@ import {
   Component, OnInit, OnDestroy, ElementRef, ViewChild,
   inject, signal, effect, untracked
 } from '@angular/core';
-import { I18nService } from '../../models/i18n.service';
+import { I18nService } from '../../core/services/i18n.service';
 
 @Component({
   selector: 'app-hero',

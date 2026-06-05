@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
-import { PortfolioDataService } from '../../models/portfolio-data.service';
-import { I18nService } from '../../models/i18n.service';
-import { Experience } from '../../models/portfolio.model';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
+import { I18nService } from '../../core/services/i18n.service';
+import { Experience } from '../../core/models/portfolio.model';
 
 @Component({
   selector: 'app-experience',

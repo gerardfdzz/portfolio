@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { I18nService, Lang } from '../../models/i18n.service';
+import { I18nService, Lang } from '../../core/services/i18n.service';
 
 @Component({
   selector: 'app-lang-switcher',

@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { I18nService } from '../../models/i18n.service';
+import { I18nService } from '../../core/services/i18n.service';
+import { PORTFOLIO_CONFIG } from '../../core/config';
 
 @Component({
   selector: 'app-contact',
@@ -14,24 +15,24 @@ export class ContactComponent {
 
   readonly contactLinks = [
     {
-      icon: 'email',
-      value: 'fernandezgarciagerard@gmail.com',
-      href: 'mailto:fernandezgarciagerard@gmail.com',
+      icon:  'email',
+      value: PORTFOLIO_CONFIG.email,
+      href:  `mailto:${PORTFOLIO_CONFIG.email}`,
     },
     {
-      icon: 'linkedin',
+      icon:  'linkedin',
       value: '/in/gerardfernandezgarcia',
-      href: 'https://www.linkedin.com/in/gerardfernandezgarcia',
+      href:  PORTFOLIO_CONFIG.linkedin,
     },
     {
-      icon: 'location',
+      icon:  'location',
       value: 'Barcelona, Spain',
-      href: null,
+      href:  null,
     },
     {
-      icon: 'github',
+      icon:  'github',
       value: 'github.com/gerardfdzz',
-      href: 'https://github.com/gerardfdzz',
+      href:  PORTFOLIO_CONFIG.github,
     },
   ];
 }

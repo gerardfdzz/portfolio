@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { I18nService } from '../../models/i18n.service';
-import { PortfolioDataService } from '../../models/portfolio-data.service';
+import { I18nService } from '../../core/services/i18n.service';
+import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-projects',

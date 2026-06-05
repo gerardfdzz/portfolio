@@ -1,12 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { inject } from '@vercel/analytics';
 
 inject();
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideAnimations()
+    provideHttpClient(),
   ]
 }).catch(err => console.error(err));
