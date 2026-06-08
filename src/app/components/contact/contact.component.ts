@@ -7,7 +7,7 @@ import { PORTFOLIO_CONFIG } from '../../core/config';
   standalone: true,
   imports: [],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
   i18n = inject(I18nService);
@@ -15,24 +15,24 @@ export class ContactComponent {
 
   readonly contactLinks = [
     {
-      icon:  'email',
+      icon: 'email',
       value: PORTFOLIO_CONFIG.email,
-      href:  `mailto:${PORTFOLIO_CONFIG.email}`,
+      href: `mailto:${PORTFOLIO_CONFIG.email}`,
     },
     {
-      icon:  'linkedin',
+      icon: 'linkedin',
       value: '/in/gerardfernandezgarcia',
-      href:  PORTFOLIO_CONFIG.linkedin,
+      href: PORTFOLIO_CONFIG.linkedin,
     },
     {
-      icon:  'location',
+      icon: 'location',
       value: 'Barcelona, Spain',
-      href:  null,
+      href: null,
     },
     {
-      icon:  'github',
+      icon: 'github',
       value: 'github.com/gerardfdzz',
-      href:  PORTFOLIO_CONFIG.github,
+      href: PORTFOLIO_CONFIG.github,
     },
   ];
 }

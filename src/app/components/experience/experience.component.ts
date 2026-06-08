@@ -8,18 +8,18 @@ import { Experience } from '../../core/models/portfolio.model';
   standalone: true,
   imports: [],
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss']
+  styleUrls: ['./experience.component.scss'],
 })
 export class ExperienceComponent {
-  i18n     = inject(I18nService);
+  i18n = inject(I18nService);
   private data = inject(PortfolioDataService);
 
   readonly experiences = this.data.experiences;
 
   activeId = signal(this.data.experiences()[0].id);
 
-  readonly activeExperience = computed<Experience>(() =>
-    this.experiences().find(e => e.id === this.activeId())!
+  readonly activeExperience = computed<Experience>(
+    () => this.experiences().find(e => e.id === this.activeId()) ?? this.experiences()[0]
   );
 
   setActive(id: string) {

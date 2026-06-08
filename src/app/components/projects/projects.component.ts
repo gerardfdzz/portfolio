@@ -7,9 +7,9 @@ import { PortfolioDataService } from '../../core/services/portfolio-data.service
   standalone: true,
   imports: [],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  i18n     = inject(I18nService);
+  i18n = inject(I18nService);
   readonly projects = inject(PortfolioDataService).projects;
 }

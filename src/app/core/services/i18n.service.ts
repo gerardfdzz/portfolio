@@ -96,7 +96,7 @@ export class I18nService {
   private _translations = signal<Translations | null>(null);
 
   readonly lang = this._lang.asReadonly();
-  readonly t    = this._translations.asReadonly();
+  readonly t = this._translations.asReadonly();
 
   readonly languages: { code: Lang; label: string }[] = [
     { code: 'en', label: 'EN' },
@@ -117,6 +117,7 @@ export class I18nService {
 
   private loadTranslations(lang: Lang): void {
     if (cache[lang]) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this._translations.set(cache[lang]!);
       return;
     }
@@ -126,7 +127,7 @@ export class I18nService {
         tap(data => {
           cache[lang] = data;
           this._translations.set(data);
-        }),
+        })
       )
       .subscribe({
         error: e => console.error(`[i18n] Failed to load translations for "${lang}"`, e),

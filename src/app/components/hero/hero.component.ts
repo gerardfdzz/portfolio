@@ -1,6 +1,13 @@
 import {
-  Component, OnInit, OnDestroy, ElementRef, ViewChild,
-  inject, signal, effect, untracked
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  inject,
+  signal,
+  effect,
+  untracked,
 } from '@angular/core';
 import { I18nService } from '../../core/services/i18n.service';
 
@@ -9,7 +16,7 @@ import { I18nService } from '../../core/services/i18n.service';
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss']
+  styleUrls: ['./hero.component.scss'],
 })
 export class HeroComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
@@ -23,7 +30,6 @@ export class HeroComponent implements OnInit, OnDestroy {
   private particles: Particle[] = [];
   private visibilityObserver: IntersectionObserver | null = null;
 
-  /** Stored reference so the resize listener can be removed in ngOnDestroy */
   private readonly resizeHandler = () => {
     this.resizeCanvas();
     this.createParticles();
@@ -77,11 +83,12 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   private initCanvas() {
-    // Respect user preference for reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const canvas = this.canvasRef.nativeElement;
-    this.ctx = canvas.getContext('2d')!;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    this.ctx = ctx;
 
     const start = () => {
       this.resizeCanvas();
@@ -91,29 +98,31 @@ export class HeroComponent implements OnInit, OnDestroy {
       window.addEventListener('resize', this.resizeHandler);
     };
 
-    // Defer canvas init until the browser is idle to avoid blocking LCP
     if ('requestIdleCallback' in window) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).requestIdleCallback(start, { timeout: 1000 });
     } else {
       setTimeout(start, 100);
     }
   }
 
-  /** Pause/resume the animation loop when the hero section leaves/enters viewport */
   private setupVisibilityPause() {
     const section = this.canvasRef.nativeElement.closest('section');
     if (!section) return;
 
-    this.visibilityObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
-        if (this.animFrame) {
-          cancelAnimationFrame(this.animFrame);
-          this.animFrame = null;
+    this.visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          if (this.animFrame) {
+            cancelAnimationFrame(this.animFrame);
+            this.animFrame = null;
+          }
+        } else if (!this.animFrame) {
+          this.animateParticles();
         }
-      } else if (!this.animFrame) {
-        this.animateParticles();
-      }
-    }, { threshold: 0 });
+      },
+      { threshold: 0 }
+    );
 
     this.visibilityObserver.observe(section);
   }
@@ -126,7 +135,6 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private createParticles() {
     this.particles = [];
-    // Fewer particles on smaller viewports to keep O(n^2) connections manageable
     const density = window.innerWidth < 768 ? 30 : 15;
     const count = Math.floor(window.innerWidth / density);
     for (let i = 0; i < count; i++) {
@@ -180,7 +188,10 @@ export class HeroComponent implements OnInit, OnDestroy {
 }
 
 interface Particle {
-  x: number; y: number;
-  vx: number; vy: number;
-  size: number; opacity: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  opacity: number;
 }

@@ -135,11 +135,7 @@
     "bio": "I'm currently open to new opportunities — whether it's a full-time role, a contract, or a project collaboration. If you're looking for a frontend developer who knows Angular inside-out and cares about quality, let's talk.",
     "ctaTitle": "Open to work",
     "ctaText": "Looking for a mid frontend role in a product-driven team. Angular expert with full CI/CD and Agile experience.",
-    "ctaTags": [
-      "Full-time",
-      "Contract",
-      "Remote / Barcelona"
-    ],
+    "ctaTags": ["Full-time", "Contract", "Remote / Barcelona"],
     "sendEmail": "Send me an email",
     "links": [
       {

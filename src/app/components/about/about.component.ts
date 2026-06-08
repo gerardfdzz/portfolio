@@ -7,7 +7,7 @@ import { I18nService } from '../../core/services/i18n.service';
   standalone: true,
   imports: [],
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
   i18n = inject(I18nService);

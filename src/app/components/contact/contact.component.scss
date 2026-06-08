@@ -91,7 +91,9 @@
   color: var(--text-primary);
   transition: var(--transition);
 
-  &:not(.no-link):hover { color: var(--accent); }
+  &:not(.no-link):hover {
+    color: var(--accent);
+  }
 }
 
 .link-desc {
@@ -112,7 +114,9 @@
   padding: 48px;
   overflow: hidden;
 
-  @media (max-width: 480px) { padding: 32px; }
+  @media (max-width: 480px) {
+    padding: 32px;
+  }
 }
 
 .cta-glow {
@@ -169,7 +173,9 @@
     filter: brightness(1.12);
     box-shadow: 0 16px 40px var(--accent-glow);
 
-    svg { transform: translateX(4px); }
+    svg {
+      transform: translateX(4px);
+    }
   }
 
   &:active {
@@ -177,7 +183,9 @@
     transition: transform 100ms ease-out;
   }
 
-  svg { transition: transform var(--transition); }
+  svg {
+    transition: transform var(--transition);
+  }
 }
 
 .footer {
@@ -191,5 +199,7 @@
   color: var(--text-muted);
   text-align: center;
 
-  strong { color: var(--text-secondary); }
+  strong {
+    color: var(--text-secondary);
+  }
 }

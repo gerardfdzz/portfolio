@@ -1,63 +1,69 @@
 @if (i18n.t(); as t) {
-<section class="section about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-left">
-        <p class="section-label">{{ t.about.label }}</p>
-        <h2 class="section-title" style="margin-bottom: 32px">
-          {{ t.about.titleLine1 }}<br>
-          <span class="gradient-text">{{ t.about.titleLine2 }}</span>
-        </h2>
-        <p class="about-text" [innerHTML]="t.about.p1"></p>
-        <p class="about-text" [innerHTML]="t.about.p2"></p>
-        <p class="about-text" [innerHTML]="t.about.p3"></p>
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <p class="section-label">{{ t.about.label }}</p>
+          <h2 class="section-title" style="margin-bottom: 32px">
+            {{ t.about.titleLine1 }}<br />
+            <span class="gradient-text">{{ t.about.titleLine2 }}</span>
+          </h2>
+          <p class="about-text" [innerHTML]="t.about.p1"></p>
+          <p class="about-text" [innerHTML]="t.about.p2"></p>
+          <p class="about-text" [innerHTML]="t.about.p3"></p>
 
-        <div class="about-links">
-          <a href="https://www.linkedin.com/in/gerardfernandezgarcia" target="_blank" rel="noopener" class="about-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-            </svg>
-            {{ t.about.linkedinLabel }}
-          </a>
-          <a href="mailto:fernandezgarciagerard@gmail.com" class="about-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            {{ t.about.emailLabel }}
-          </a>
+          <div class="about-links">
+            <a
+              href="https://www.linkedin.com/in/gerardfernandezgarcia"
+              target="_blank"
+              rel="noopener"
+              class="about-link"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              {{ t.about.linkedinLabel }}
+            </a>
+            <a href="mailto:fernandezgarciagerard@gmail.com" class="about-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              {{ t.about.emailLabel }}
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="about-right">
-        <div class="education-card">
-          <h3 class="edu-title">{{ t.about.educationTitle }}</h3>
-          <div class="edu-list">
-            @for (edu of education(); track edu.degree) {
-              <div class="edu-item">
-                <span class="edu-icon" aria-hidden="true">🎓</span>
-                <div class="edu-info">
-                  <p class="edu-degree">{{ edu.degree }}</p>
-                  <p class="edu-institution">{{ edu.institution }}</p>
-                  <p class="edu-period">{{ edu.period }}</p>
+        <div class="about-right">
+          <div class="education-card">
+            <h3 class="edu-title">{{ t.about.educationTitle }}</h3>
+            <div class="edu-list">
+              @for (edu of education(); track edu.degree) {
+                <div class="edu-item">
+                  <span class="edu-icon" aria-hidden="true">🎓</span>
+                  <div class="edu-info">
+                    <p class="edu-degree">{{ edu.degree }}</p>
+                    <p class="edu-institution">{{ edu.institution }}</p>
+                    <p class="edu-period">{{ edu.period }}</p>
+                  </div>
                 </div>
+              }
+            </div>
+          </div>
+
+          <div class="values-grid">
+            @for (value of t.about.values; track value.name) {
+              <div class="value-card">
+                <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
+                <p class="value-name">{{ value.name }}</p>
+                <p class="value-desc">{{ value.desc }}</p>
               </div>
             }
           </div>
         </div>
-
-        <div class="values-grid">
-          @for (value of t.about.values; track value.name) {
-            <div class="value-card">
-              <span class="value-icon" aria-hidden="true">{{ value.icon }}</span>
-              <p class="value-name">{{ value.name }}</p>
-              <p class="value-desc">{{ value.desc }}</p>
-            </div>
-          }
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 }

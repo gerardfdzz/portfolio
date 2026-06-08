@@ -1,14 +1,14 @@
 @if (i18n.t(); as t) {
-<section class="section skills" id="skills">
-  <div class="container">
-    <p class="section-label">{{ t.skills.label }}</p>
-    <h2 class="section-title">{{ t.skills.title }}</h2>
+  <section class="section skills" id="skills">
+    <div class="container">
+      <p class="section-label">{{ t.skills.label }}</p>
+      <h2 class="section-title">{{ t.skills.title }}</h2>
 
-    <div class="skills-cloud">
-      @for (tech of allTech; track tech) {
-        <span class="tag">{{ tech }}</span>
-      }
+      <div class="skills-cloud">
+        @for (tech of allTech; track tech) {
+          <span class="tag">{{ tech }}</span>
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 }

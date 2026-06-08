@@ -6,7 +6,5 @@ import { inject } from '@vercel/analytics';
 inject();
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    provideHttpClient(),
-  ]
+  providers: [provideHttpClient()],
 }).catch(err => console.error(err));

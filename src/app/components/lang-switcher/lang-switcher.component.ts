@@ -6,7 +6,7 @@ import { I18nService, Lang } from '../../core/services/i18n.service';
   standalone: true,
   imports: [],
   templateUrl: './lang-switcher.component.html',
-  styleUrls: ['./lang-switcher.component.scss']
+  styleUrls: ['./lang-switcher.component.scss'],
 })
 export class LangSwitcherComponent {
   i18n = inject(I18nService);

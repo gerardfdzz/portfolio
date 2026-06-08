@@ -74,7 +74,7 @@
   position: relative;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 4px;
     left: 16px;
@@ -87,7 +87,9 @@
 
   &:hover {
     color: var(--text-primary);
-    &::after { transform: scaleX(1); }
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -121,7 +123,9 @@
   height: 34px;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
-  transition: color var(--transition), background var(--transition);
+  transition:
+    color var(--transition),
+    background var(--transition);
 
   &:hover {
     color: var(--text-primary);
@@ -138,7 +142,9 @@
   cursor: pointer;
   padding: 4px;
 
-  @media (max-width: 768px) { display: flex; }
+  @media (max-width: 768px) {
+    display: flex;
+  }
 
   span {
     display: block;
@@ -150,9 +156,15 @@
   }
 
   &.open {
-    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    span:nth-child(2) { opacity: 0; }
-    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
   }
 }
 
@@ -211,11 +223,12 @@
   min-width: 90px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
   z-index: 100;
-  /* @starting-style replaces the old fadeInUp keyframe — no JS needed */
   opacity: 1;
   transform: translateY(0) scale(1);
   transform-origin: top right;
-  transition: opacity 150ms ease-out, transform 150ms ease-out;
+  transition:
+    opacity 150ms ease-out,
+    transform 150ms ease-out;
 
   @starting-style {
     opacity: 0;
@@ -273,9 +286,13 @@
   background: rgba(10, 10, 15, 0.98);
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition-slow), padding var(--transition-slow);
+  transition:
+    max-height var(--transition-slow),
+    padding var(--transition-slow);
 
-  @media (max-width: 768px) { display: flex; }
+  @media (max-width: 768px) {
+    display: flex;
+  }
 
   &.open {
     max-height: 480px;
@@ -291,7 +308,9 @@
     border-bottom: 1px solid var(--border);
     transition: var(--transition);
 
-    &:hover { color: var(--text-primary); }
+    &:hover {
+      color: var(--text-primary);
+    }
   }
 
   .mobile-cta {
@@ -357,7 +376,7 @@
     background: rgba(108, 99, 255, 0.12);
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       width: 16px;
       height: 1px;

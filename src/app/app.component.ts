@@ -50,6 +50,6 @@ import { ContactComponent } from './components/contact/contact.component';
         <div style="min-height:400px"></div>
       }
     </main>
-  `
+  `,
 })
 export class AppComponent {}
