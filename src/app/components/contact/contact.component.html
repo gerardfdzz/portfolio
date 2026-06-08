@@ -1,89 +1,104 @@
 @if (i18n.t(); as t) {
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <p class="section-label">{{ t.contact.label }}</p>
-        <h2 class="contact-title">
-          {{ t.contact.titleLine1 }}<br>
-          <span class="gradient-text">{{ t.contact.titleLine2 }}</span>
-        </h2>
-        <p class="contact-bio">{{ t.contact.bio }}</p>
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <p class="section-label">{{ t.contact.label }}</p>
+          <h2 class="contact-title">
+            {{ t.contact.titleLine1 }}<br />
+            <span class="gradient-text">{{ t.contact.titleLine2 }}</span>
+          </h2>
+          <p class="contact-bio">{{ t.contact.bio }}</p>
 
-        <div class="contact-links">
-          @for (link of contactLinks; track link.icon; let i = $index) {
-            <div class="contact-link-card">
-              <div class="link-icon">
-                @switch (link.icon) {
-                  @case ('email') {
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
-                    </svg>
+          <div class="contact-links">
+            @for (link of contactLinks; track link.icon; let i = $index) {
+              <div class="contact-link-card">
+                <div class="link-icon">
+                  @switch (link.icon) {
+                    @case ("email") {
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                    }
+                    @case ("linkedin") {
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    }
+                    @case ("location") {
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    }
+                    @case ("github") {
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                        />
+                      </svg>
+                    }
                   }
-                  @case ('linkedin') {
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                      <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                    </svg>
+                </div>
+                <div class="link-info">
+                  <p class="link-label">{{ t.contact.links[i].label }}</p>
+                  @if (link.href) {
+                    <a [href]="link.href" target="_blank" rel="noopener" class="link-value">{{ link.value }}</a>
+                  } @else {
+                    <p class="link-value no-link">{{ link.value }}</p>
                   }
-                  @case ('location') {
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                  }
-                  @case ('github') {
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                    </svg>
-                  }
-                }
+                  <p class="link-desc">{{ t.contact.links[i].desc }}</p>
+                </div>
               </div>
-              <div class="link-info">
-                <p class="link-label">{{ t.contact.links[i].label }}</p>
-                @if (link.href) {
-                  <a [href]="link.href" target="_blank" rel="noopener" class="link-value">{{ link.value }}</a>
-                } @else {
-                  <p class="link-value no-link">{{ link.value }}</p>
-                }
-                <p class="link-desc">{{ t.contact.links[i].desc }}</p>
-              </div>
-            </div>
-          }
+            }
+          </div>
         </div>
-      </div>
 
-      <div class="contact-right">
-        <div class="cta-card">
-          <div class="cta-glow"></div>
-          <div class="cta-content">
-            <h3 class="cta-title">{{ t.contact.ctaTitle }}</h3>
-            <p class="cta-text">{{ t.contact.ctaText }}</p>
-            <div class="cta-tags">
-              @for (tag of t.contact.ctaTags; track tag) {
-                <span class="tag">{{ tag }}</span>
-              }
+        <div class="contact-right">
+          <div class="cta-card">
+            <div class="cta-glow"></div>
+            <div class="cta-content">
+              <h3 class="cta-title">{{ t.contact.ctaTitle }}</h3>
+              <p class="cta-text">{{ t.contact.ctaText }}</p>
+              <div class="cta-tags">
+                @for (tag of t.contact.ctaTags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+              <a href="mailto:fernandezgarciagerard@gmail.com" class="cta-btn">
+                {{ t.contact.sendEmail }}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
             </div>
-            <a href="mailto:fernandezgarciagerard@gmail.com" class="cta-btn">
-              {{ t.contact.sendEmail }}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-text">
-        {{ t.contact.footer }} {{ year }}
-      </p>
-    </div>
-  </footer>
-</section>
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">{{ t.contact.footer }} {{ year }}</p>
+      </div>
+    </footer>
+  </section>
 }

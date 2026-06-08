@@ -2,6 +2,7 @@
   "nav": {
     "about": "About",
     "experience": "Experience",
+    "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact",
     "hireMe": "Hire me"
@@ -108,20 +109,24 @@
     "label": "Tech stack",
     "title": "Skills",
     "fullListLabel": "Full technology list",
+    "tiers": {
+      "expert": "Expert",
+      "proficient": "Proficient",
+      "familiar": "Familiar"
+    },
     "categories": {
-      "core": {
-        "name": "Core"
-      },
-      "styling": {
-        "name": "Styling"
-      },
-      "testing": {
-        "name": "Testing"
-      },
-      "tooling": {
-        "name": "Tooling"
-      }
+      "core": { "name": "Core" },
+      "styling": { "name": "Styling" },
+      "testing": { "name": "Testing" },
+      "tooling": { "name": "Tooling" }
     }
+  },
+  "projects": {
+    "label": "Selected work",
+    "title": "Projects",
+    "statusLive": "Live",
+    "statusWip": "In progress",
+    "liveDemo": "Live demo"
   },
   "contact": {
     "label": "Get in touch",

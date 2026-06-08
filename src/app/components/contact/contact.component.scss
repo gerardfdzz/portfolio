@@ -26,10 +26,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .contact-bio {
@@ -38,7 +35,6 @@
   line-height: 1.8;
   margin-bottom: 40px;
   max-width: 460px;
-  text-align: justify;
 }
 
 .contact-links {
@@ -95,7 +91,9 @@
   color: var(--text-primary);
   transition: var(--transition);
 
-  &:not(.no-link):hover { color: var(--accent); }
+  &:not(.no-link):hover {
+    color: var(--accent);
+  }
 }
 
 .link-desc {
@@ -116,7 +114,9 @@
   padding: 48px;
   overflow: hidden;
 
-  @media (max-width: 480px) { padding: 32px; }
+  @media (max-width: 480px) {
+    padding: 32px;
+  }
 }
 
 .cta-glow {
@@ -147,7 +147,6 @@
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 24px;
-  text-align: justify;
 }
 
 .cta-tags {
@@ -171,13 +170,22 @@
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-3px);
+    filter: brightness(1.12);
     box-shadow: 0 16px 40px var(--accent-glow);
 
-    svg { transform: translateX(4px); }
+    svg {
+      transform: translateX(4px);
+    }
   }
 
-  svg { transition: transform var(--transition); }
+  &:active {
+    transform: scale(0.97);
+    transition: transform 100ms ease-out;
+  }
+
+  svg {
+    transition: transform var(--transition);
+  }
 }
 
 .footer {
@@ -191,5 +199,7 @@
   color: var(--text-muted);
   text-align: center;
 
-  strong { color: var(--text-secondary); }
+  strong {
+    color: var(--text-secondary);
+  }
 }

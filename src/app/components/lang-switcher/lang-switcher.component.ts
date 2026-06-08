@@ -1,13 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { I18nService, Lang } from '../../models/i18n.service';
+import { I18nService, Lang } from '../../core/services/i18n.service';
 
 @Component({
   selector: 'app-lang-switcher',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './lang-switcher.component.html',
-  styleUrls: ['./lang-switcher.component.scss']
+  styleUrls: ['./lang-switcher.component.scss'],
 })
 export class LangSwitcherComponent {
   i18n = inject(I18nService);

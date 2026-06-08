@@ -2,6 +2,7 @@
   "nav": {
     "about": "Sobre mi",
     "experience": "Experiència",
+    "projects": "Projectes",
     "skills": "Habilitats",
     "contact": "Contacte",
     "hireMe": "Contracta'm"
@@ -108,20 +109,24 @@
     "label": "Stack tecnològic",
     "title": "Habilitats",
     "fullListLabel": "Llista completa de tecnologies",
+    "tiers": {
+      "expert": "Expert",
+      "proficient": "Avançat",
+      "familiar": "Familiaritzat"
+    },
     "categories": {
-      "core": {
-        "name": "Principal"
-      },
-      "styling": {
-        "name": "Estils"
-      },
-      "testing": {
-        "name": "Testing"
-      },
-      "tooling": {
-        "name": "Eines"
-      }
+      "core": { "name": "Principal" },
+      "styling": { "name": "Estils" },
+      "testing": { "name": "Testing" },
+      "tooling": { "name": "Eines" }
     }
+  },
+  "projects": {
+    "label": "Treball seleccionat",
+    "title": "Projectes",
+    "statusLive": "En viu",
+    "statusWip": "En curs",
+    "liveDemo": "Veure demo"
   },
   "contact": {
     "label": "Posa't en contacte",

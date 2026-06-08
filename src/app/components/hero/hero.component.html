@@ -1,67 +1,91 @@
-@if (i18n.t(); as t) {
 <section class="hero">
   <canvas #canvas class="hero-canvas"></canvas>
 
   <div class="hero-bg-glow"></div>
 
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow animate-fade-up">
-        <span class="status-dot"></span>
-        <span>{{ t.hero.available }}</span>
-      </div>
-
-      <h1 class="hero-name animate-fade-up" style="animation-delay: 0.1s">
-        Gerard<br>
-        <span class="name-accent">Fernández</span><br>
-        García
-      </h1>
-
-      <div class="hero-role animate-fade-up" style="animation-delay: 0.2s">
-        <span class="role-text">{{ displayedText() }}</span>
-        <span class="cursor">|</span>
-      </div>
-
-      <p class="hero-bio animate-fade-up" style="animation-delay: 0.3s">
-        {{ t.hero.bio }}
-      </p>
-
-      <div class="hero-badges animate-fade-up" style="animation-delay: 0.4s">
-        @for (badge of techBadges; track badge) {
-          <span class="tag">{{ badge }}</span>
-        }
-      </div>
-
-      <div class="hero-actions animate-fade-up" style="animation-delay: 0.5s">
-        <a href="#experience" class="btn-primary">{{ t.hero.viewExperience }}</a>
-        <a href="mailto:fernandezgarciagerard@gmail.com" class="btn-secondary">
-          {{ t.hero.getInTouch }}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-
-      <div class="hero-stats animate-fade-up" style="animation-delay: 0.6s">
-        @for (stat of t.hero.stats; track stat.label) {
-          <div class="stat">
-            <span class="stat-value">{{ stat.value }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
-          </div>
-        }
-      </div>
-    </div>
-
-    <div class="hero-visual animate-fade-up" style="animation-delay: 0.3s">
-      <div class="code-card">
-        <div class="code-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="file-name">gerard.component.ts</span>
+  @if (i18n.t(); as t) {
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow animate-fade-up">
+          <span class="status-dot"></span>
+          <span>{{ t.hero.available }}</span>
         </div>
-        <pre class="code-body"><code><span class="c-keyword">&#64;Component</span>(<span>&#123;</span>
+
+        <h1 class="hero-name animate-fade-up" style="animation-delay: 0.1s">
+          Gerard<br />
+          <span class="name-accent">Fernández</span><br />
+          García
+        </h1>
+
+        <div class="hero-role animate-fade-up" style="animation-delay: 0.2s">
+          <span class="role-text">{{ displayedText() }}</span>
+          <span class="cursor">|</span>
+        </div>
+
+        <p class="hero-bio animate-fade-up" style="animation-delay: 0.3s">
+          {{ t.hero.bio }}
+        </p>
+
+        <div class="hero-badges animate-fade-up" style="animation-delay: 0.4s">
+          @for (badge of techBadges; track badge) {
+            <span class="tag">{{ badge }}</span>
+          }
+        </div>
+
+        <div class="hero-actions animate-fade-up" style="animation-delay: 0.5s">
+          <a href="#experience" class="btn-primary">{{ t.hero.viewExperience }}</a>
+          <a href="mailto:fernandezgarciagerard@gmail.com" class="btn-secondary">
+            {{ t.hero.getInTouch }}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="assets/cv-gerard-fernandez.pdf" download class="btn-cv" aria-label="Download CV">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            CV
+          </a>
+        </div>
+
+        <div class="hero-stats animate-fade-up" style="animation-delay: 0.6s">
+          @for (stat of t.hero.stats; track stat.label) {
+            <div class="stat">
+              <span class="stat-value">{{ stat.value }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="hero-visual animate-fade-up" style="animation-delay: 0.3s">
+        <div class="code-card">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="file-name">gerard.component.ts</span>
+          </div>
+          <pre class="code-body"><code><span class="c-keyword">&#64;Component</span>(<span>&#123;</span>
   <span class="c-key">selector</span>: <span class="c-string">'app-gerard'</span>,
   <span class="c-key">standalone</span>: <span class="c-bool">true</span>,
   <span class="c-key">template</span>: <span class="c-string">`&lt;frontend-dev/&gt;`</span>
@@ -84,8 +108,8 @@
     <span class="c-keyword">return</span> <span class="c-string">'fernandezgarciagerard&#64;gmail.com'</span>;
   <span>&#125;</span>
 <span>&#125;</span></code></pre>
+        </div>
       </div>
     </div>
-  </div>
+  }
 </section>
-}

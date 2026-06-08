@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { I18nService } from '../../models/i18n.service';
+import { I18nService } from '../../core/services/i18n.service';
+import { PORTFOLIO_CONFIG } from '../../core/config';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
   i18n = inject(I18nService);
@@ -16,13 +16,13 @@ export class ContactComponent {
   readonly contactLinks = [
     {
       icon: 'email',
-      value: 'fernandezgarciagerard@gmail.com',
-      href: 'mailto:fernandezgarciagerard@gmail.com',
+      value: PORTFOLIO_CONFIG.email,
+      href: `mailto:${PORTFOLIO_CONFIG.email}`,
     },
     {
       icon: 'linkedin',
       value: '/in/gerardfernandezgarcia',
-      href: 'https://www.linkedin.com/in/gerardfernandezgarcia',
+      href: PORTFOLIO_CONFIG.linkedin,
     },
     {
       icon: 'location',
@@ -32,7 +32,7 @@ export class ContactComponent {
     {
       icon: 'github',
       value: 'github.com/gerardfdzz',
-      href: 'https://github.com/gerardfdzz',
+      href: PORTFOLIO_CONFIG.github,
     },
   ];
 }
