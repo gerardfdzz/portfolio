@@ -24,27 +24,27 @@ import { ContactComponent } from './components/contact/contact.component';
     <app-navbar />
     <main id="main-content">
       <app-hero />
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-about />
       } @placeholder {
         <div style="min-height:600px"></div>
       }
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-experience />
       } @placeholder {
         <div style="min-height:500px"></div>
       }
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-projects />
       } @placeholder {
         <div style="min-height:400px"></div>
       }
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-skills />
       } @placeholder {
         <div style="min-height:400px"></div>
       }
-      @defer (on viewport) {
+      @defer (on idle) {
         <app-contact />
       } @placeholder {
         <div style="min-height:400px"></div>
