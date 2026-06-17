@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800');
+    </style>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#6c63ff" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#6c63ff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#6c63ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dot-glow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background (remove this rect for transparent version) -->
+  <rect width="240" height="60" fill="#0a0a0f" rx="8"/>
+
+  <!-- GFG text -->
+  <text
+    x="24"
+    y="42"
+    font-family="'Syne', 'Arial Black', sans-serif"
+    font-weight="800"
+    font-size="36"
+    letter-spacing="-0.03em"
+    fill="#f0ede8"
+  >GFG</text>
+
+  <!-- Glow halo -->
+  <circle cx="194" cy="30" r="12" fill="url(#glow)"/>
+
+  <!-- Purple dot -->
+  <circle cx="194" cy="30" r="4" fill="#6c63ff" filter="url(#dot-glow)"/>
+</svg>
