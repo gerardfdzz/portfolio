@@ -119,6 +119,17 @@ const PROJECTS_STATIC: Project[] = [
     status: 'live',
     featured: true,
   },
+  {
+    id: 'partits-calendari',
+    title: 'Partits al Calendari',
+    description:
+      'Web app that fetches real match schedules from the Federació Catalana de Futbol and generates a personalised .ics calendar file — one tap to import all fixtures into Google Calendar, Apple Calendar or any mobile calendar app.',
+    stack: ['Angular', 'TypeScript', 'SCSS', 'iCalendar', 'FCF API'],
+    githubUrl: 'https://github.com/gerardfdzz/futsal-calendar',
+    liveUrl: 'https://partitsalcalendari.com/',
+    status: 'live',
+    featured: true,
+  },
 ];
 
 const EDUCATION_STATIC = [
